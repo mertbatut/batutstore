@@ -9,6 +9,7 @@ function App() {
   return (
     <>
       <h1><i class="fa-brands fa-github"></i> Setup Tamamlandı</h1>
+      Tasarıma
     </>
   )
 }
