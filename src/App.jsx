@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import HomePage from './pages/HomePage'
 import './App.css'
 
 function App() {
@@ -8,8 +7,8 @@ function App() {
 
   return (
     <>
-      <h1><i class="fa-brands fa-github"></i> Setup Tamamlandı</h1>
-      Tasarıma
+      <HomePage />
+
     </>
   )
 }
