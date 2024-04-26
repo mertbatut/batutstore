@@ -4,8 +4,8 @@ export default class Header extends Component {
     render() {
         return (
 
-            <div className='Navbar flex font-mont'>
-                <div className='Container flex'>
+            <div className='Navbar flex pt-10 '>
+                <div className='Container flex pl-56'>
                     <div className='NavbarStyle flex items-center gap-x-24'>
                         <div className='NavbarBrand font-bold text-[#252B42] text-2xl'><h3>BatutStore</h3></div>
                         <div className='NavbarCollapse flex items-center'>
@@ -17,26 +17,26 @@ export default class Header extends Component {
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Contact</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Pages</a></li>
                             </div>
-                            <div className='NavbarNav flex list-none gap-6'>
+                            <div className='NavbarNav flex list-none gap-6 items-center'>
                                 <div className='LogReg flex items-center pl-24'>
                                     <li>
                                         <a href="">
                                             <div id='Btn-32'>
-                                                <div id='IconSettings'>
-                                                    <img src="" alt="vector" />
-                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'>Login / Register</h1>
+                                                <div className='IconSettings flex items-center'>
+                                                    
+                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'><i class="fa-regular fa-user"></i>Login / Register</h1>
                                                 </div>
 
                                             </div>
                                         </a>
                                     </li>
                                 </div>
-                                <div className='FindTool'>
+                                <div className='FindTool  flex gap-12'>
                                     <li>
                                         <a href="">
                                             <span id='Btn-32'>
                                                 <span id='IconSettings'>
-                                                    <img src="" alt="vector" />
+                                                <i class="fa-solid fa-magnifying-glass"></i>
                                                 </span>
 
                                             </span>
@@ -47,29 +47,28 @@ export default class Header extends Component {
                                         <a href="">
                                             <span id='Btn-32'>
                                                 <span id='IconSettings'>
-                                                    <img src="" alt="vector" />
+                                                <h1 className='text-base'> <i class="fa-solid fa-cart-shopping fa-xs "></i> 1</h1>
                                                 </span>
-                                                <h1>1</h1>
                                             </span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="">
-                                            <span id='Btn-32'>
-                                                <span id='IconSettings'>
-                                                    <img src="" alt="vector" />
-                                                </span>
-                                                <h1>1</h1>
-                                            </span>
+                                            <div className='Btn-32 h-px-16'>
+                                                <div className='IconSettings'>
+                                                <h1 className='text-base'> <i class="fa-regular fa-heart fa-beat fa-xs"></i> 1</h1>
+                                                </div>
+                                                
+                                            </div>
                                         </a>
                                     </li>
                                 </div>
                             </div>
 
                         </div>
-                        <div className='NavbarToggler'>
+                        {/* <div className='NavbarToggler'>
                             <div className='NavbarTogglerIcon'></div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>
