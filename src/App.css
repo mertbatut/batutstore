@@ -64,7 +64,7 @@ html,
 body {
   margin: 0;
   /* 1 */
-  line-height: inherit;
+
   /* 2 */
 }
 
@@ -161,7 +161,7 @@ sub,
 sup {
   font-size: 75%;
   line-height: 0;
-  position: relative;
+
   vertical-align: baseline;
 }
 
@@ -267,9 +267,6 @@ Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/
 Add the correct vertical alignment in Chrome and Firefox.
 */
 
-progress {
-  vertical-align: baseline;
-}
 
 /*
 Correct the cursor style of increment and decrement buttons in Safari.
@@ -416,35 +413,16 @@ Make sure disabled buttons don't get the pointer cursor.
    This can trigger a poorly considered lint error in some tools but is included by design.
 */
 
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-  display: block;
-  /* 1 */
-  vertical-align: middle;
-  /* 2 */
-}
 
 /*
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
+
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
-[hidden] {
-  display: none;
-}
+
 
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
@@ -577,9 +555,6 @@ a:hover {
   color: #535bf2;
 }
 
-body {
- 
-}
 
 h1 {
   font-size: 3.2em;
