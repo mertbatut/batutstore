@@ -5,20 +5,13 @@ import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
 import Carousel from './components/Carousels'
 
 function App() {
-  let slides = [
-    "./home1.jpg",
-    "./home1.jpg",
-    "./home1.jpg",
-    "./home1.jpg",
-    
-  ];
   const [count, setCount] = useState(0)
 
   return (
     <>
       <BrowserRouter>
         <Header></Header>
-        <Carousel slides={slides} />
+        <Carousel/>
       </BrowserRouter>
     </>
   )

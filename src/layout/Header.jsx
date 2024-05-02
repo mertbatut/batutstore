@@ -5,7 +5,7 @@ export default class Header extends Component {
         return (
 
             <div className='Navbar flex pt-10 py-12	'>
-                <div className='Container flex pl-56'>
+                <div className='Container flex pl-64'>
                     <div className='NavbarStyle flex items-center gap-x-24'>
                         <div className='NavbarBrand font-bold text-[#252B42] text-2xl'><h3>BatutStore</h3></div>
                         <div className='NavbarCollapse flex items-center'>

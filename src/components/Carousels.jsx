@@ -1,60 +1,108 @@
+import React from 'react'
+import { Carousel, Typography, Button } from "@material-tailwind/react";
 
-import { useState } from "react";
-import {
-  BsFillArrowRightCircleFill,
-  BsFillArrowLeftCircleFill,
-} from "react-icons/bs";
-export default function Carousel({ slides }) {
-  let [current, setCurrent] = useState(0);
-
-  let previousSlide = () => {
-    if (current === 0) setCurrent(slides.length - 1);
-    else setCurrent(current - 1);
-  };
-
-  let nextSlide = () => {
-    if (current === slides.length - 1) setCurrent(0);
-    else setCurrent(current + 1);
-  };
-
+export default function CarouselWithContent() {
   return (
-    <div className="overflow-hidden relative w-[94 rem] h-[35rem]">
-      
-      <div
-        className={`flex transition ease-out duration-40 `}
-        style={{
-          transform: `translateX(-${current * 100}%)`,
-        }}
-      >
-        {slides.map((s) => {
-          return <img src={s} />;
-        })}
+    <div >
+      <Carousel className="rounded-xl">
+      <div className="relative h-full w-full">
+        <img
+          src="../home1.jpg"
+          alt="image 1"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 grid h-full w-full place-items-center">
+          <div className="w-3/4 text-center md:w-2/4">
+            <Typography
+              variant="h1"
+              color="white"
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+            >
+              GROCERIES DELIVERY
+            </Typography>
+            <Typography
+              variant="lead"
+              color="white"
+              className="mb-12 opacity-80"
+            >
+              We know how large objects will act, but things on a
+              small scale just do not act that way.
+            </Typography>
+            <div className="flex justify-center gap-2">
+              <Button size="lg" color="1250">
+                Start Now
+              </Button>
+             
+            </div>
+          </div>
+        </div>
       </div>
-      
-      <div className="absolute top-0 h-full w-full justify-between items-center flex text-white px-10 text-3xl">
-        <button onClick={previousSlide}>
-          <BsFillArrowLeftCircleFill />
-        </button>
-        <button onClick={nextSlide}>
-          <BsFillArrowRightCircleFill />
-        </button>
+      <div className="relative h-full w-full">
+        <img
+          src="../home1.jpg"
+          alt="image 1"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+          <div className="w-3/4 text-center md:w-2/4">
+            <Typography
+              variant="h1"
+              color="white"
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+            >
+              GROCERIES DELIVERY
+            </Typography>
+            <Typography
+              variant="lead"
+              color="white"
+              className="mb-12 opacity-80"
+            >
+              We know how large objects will act, but things on a
+              small scale just do not act that way.
+            </Typography>
+            <div className="flex justify-center gap-2">
+              <Button size="lg" color="#23A6F0">
+                Start Now
+              </Button>
+              
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div className="absolute bottom-0 py-4 flex justify-center gap-3 w-full">
-        {slides.map((s, i) => {
-          return (
-            <div
-              onClick={() => {
-                setCurrent(i);
-              }}
-              key={"circle" + i}
-              className={`rounded-full w-5 h-5 cursor-pointer  ${
-                i == current ? "bg-white" : "bg-gray-500"
-              }`}
-            ></div>
-          );
-        })}
+      <div className="relative h-full w-full">
+        <img
+          src="../home1.jpg"
+          alt="image 1"
+          className="h-full w-full object-cover"
+        />
+        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+          <div className="w-3/4 text-center md:w-2/4">
+            <Typography
+              variant="h1"
+              color="white"
+              className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+            >
+              GROCERIES DELIVERY
+            </Typography>
+            <Typography
+              variant="lead"
+              color="white"
+              className="mb-12 opacity-80"
+            >
+              We know how large objects will act, but things on a
+              small scale just do not act that way.
+            </Typography>
+            <div className="flex justify-center gap-2">
+              <Button size="lg" color="#23A6F0">
+                Start Now
+              </Button>
+             
+            </div>
+          </div>
+        </div>
       </div>
+    </Carousel>
     </div>
-  );
+  )
+
 }
