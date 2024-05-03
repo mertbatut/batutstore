@@ -7,23 +7,23 @@ export default class ShopCard extends Component {
                 <div className='Elements'>
                     <div className='ProductCard w-80 min-h-60'>
                         <div className='ProductItem'>
-                            <h6></h6>
-                            <h2></h2>
-                            <h6></h6>
+                            <h6>Your Space</h6>
+                            <h2>Unique Life</h2>
+                            <h6>Explore Items</h6>
                         </div>
                     </div>
                     <div className='ProductCard w-80 min-h-60'>
                         <div className='ProductItem'>
-                            <h6></h6>
-                            <h2></h2>
-                            <h6></h6>
+                            <h6>Ends Today</h6>
+                            <h2>Elements Style</h2>
+                            <h6>Explore Items</h6>
                         </div>
                     </div>
                     <div className='ProductCard w-80 min-h-60'>
                         <div className='ProductItem'>
-                            <h6></h6>
-                            <h2></h2>
-                            <h6></h6>
+                            <h6>Ends Today</h6>
+                            <h2>Elements Style</h2>
+                            <h6>Explore Items</h6>
                         </div>
                     </div>
                 </div>

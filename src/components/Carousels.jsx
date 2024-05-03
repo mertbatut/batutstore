@@ -7,7 +7,7 @@ export default function CarouselWithContent() {
       <Carousel className="w-[130rem] h-[40rem] overflow-hidden">
         <div className="relative h-full w-full ">
           <img
-            src="../home1.jpg"
+            src="../images/home1.jpg"
             alt="image 1"
             className="h-full w-full object-cover"
           />
@@ -40,7 +40,7 @@ export default function CarouselWithContent() {
         </div>
         <div className="relative h-full w-full">
           <img
-            src="../home1.jpg"
+            src="../images/home1.jpg"
             alt="image 1"
             className="h-full w-full object-cover"
           />
@@ -49,7 +49,7 @@ export default function CarouselWithContent() {
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-4 text-3xl md:text-4xl lg:text-5xl"
+                className="mb-4 font-bold text-6xl "
               >
                 GROCERIES DELIVERY
               </Typography>
@@ -72,7 +72,7 @@ export default function CarouselWithContent() {
         </div>
         <div className="relative h-full w-full">
           <img
-            src="../home1.jpg"
+            src="../images/home1.jpg"
             alt="image 1"
             className="h-full w-full object-cover"
           />
@@ -81,7 +81,7 @@ export default function CarouselWithContent() {
               <Typography
                 variant="h1"
                 color="white"
-                className="mb-4 text-6xl md:text-4xl lg:text-5xl"
+                className="mb-4 font-bold text-6xl "
               >
                 GROCERIES DELIVERY
               </Typography>
