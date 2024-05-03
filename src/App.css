@@ -544,7 +544,9 @@ Constrain images and videos to the parent width and preserve their intrinsic asp
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+button {
+  color: #23A6F0;
+}
 a {
   font-weight: 500;
   color: #646cff;

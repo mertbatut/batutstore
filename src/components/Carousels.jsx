@@ -11,7 +11,7 @@ export default function CarouselWithContent() {
           alt="image 1"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full place-items-center">
+        <div className="absolute inset-0 grid h-full w-full place-items-center  bg-black/25">
           <div className="w-3/4 text-center md:w-2/4">
             <Typography
               variant="h1"
@@ -29,10 +29,10 @@ export default function CarouselWithContent() {
               small scale just do not act that way.
             </Typography>
             <div className="flex justify-center gap-2">
-              <Button size="lg" color="1250">
-                Start Now
+              <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
+                <h3>Start Now</h3>
               </Button>
-             
+            
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ export default function CarouselWithContent() {
           alt="image 1"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/25">
           <div className="w-3/4 text-center md:w-2/4">
             <Typography
               variant="h1"
@@ -75,7 +75,7 @@ export default function CarouselWithContent() {
           alt="image 1"
           className="h-full w-full object-cover"
         />
-        <div className="absolute inset-0 grid h-full w-full place-items-center bg-black/75">
+        <div className="absolute inset-0 grid h-full w-full place-items-center  bg-black/25">
           <div className="w-3/4 text-center md:w-2/4">
             <Typography
               variant="h1"
