@@ -18,10 +18,77 @@ export default class Footer extends Component {
                         </div>
                         
                         
+                        
                     </div>
 
                 </div>
-                <div className='FooterSecond'></div>
+                <div className='FooterSecond flex justify-center gap-36'>
+                            <div className='FooterContainer'>
+                                <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
+                                    <h5 className='font-bold text-base leading-6'>Company Info</h5>
+                                    <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
+                                        <li>About Us</li>
+                                        <li>Carrier</li>
+                                        <li>We are hiring</li>
+                                        <li>Blog</li>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div className='FooterContainer'>
+                                <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
+                                    <h5 className='font-bold text-base leading-6'>Legal</h5>
+                                    <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
+                                        <li>About Us</li>
+                                        <li>Carrier</li>
+                                        <li>We are hiring</li>
+                                        <li>Blog</li>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div className='FooterContainer'>
+                                <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
+                                    <h5 className='font-bold text-base leading-6'>Features</h5>
+                                    <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
+                                        <li>Business Marketing</li>
+                                        <li>User Analytic</li>
+                                        <li>Live Chat</li>
+                                        <li>Unlimited Support</li>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div className='FooterContainer'>
+                                <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
+                                    <h5 className='font-bold text-base leading-6'>Resources</h5>
+                                    <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
+                                        <li>IOS & Android</li>
+                                        <li>Watch a Demo</li>
+                                        <li>Customers</li>
+                                        <li>API</li>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div className='FooterContainer'>
+                                <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
+                                    <h5 className='font-bold text-base leading-6'>Get in Touch</h5>
+                                    <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
+                                        <li><i class="fa-solid fa-phone fa-xl w-6"></i> (480) 555-0103</li>
+                                        <li><i class="fa-solid fa-location-dot fa-xl w-6"></i> 4517 Washington Ave. </li>
+                                        <li><i class="fa-solid fa-envelope fa-xl w-6"></i> debra.holt@example.com</li>
+                                        
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
                 <div className='FooterThird'></div>
             </div>
         )
