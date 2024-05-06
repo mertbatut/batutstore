@@ -4,7 +4,7 @@ import Header from './layout/Header'
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
 import Carousel from './components/Carousels'
 import ShopCard from './components/ShopCard'
-import Footer from './components/Footer'
+import Footer from './layout/Footer'
 
 function App() {
   const [count, setCount] = useState(0)
