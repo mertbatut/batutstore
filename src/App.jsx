@@ -6,6 +6,7 @@ import Carousel from './components/Carousels'
 import ShopCard from './components/ShopCard'
 import Footer from './layout/Footer'
 import ProductContent from './layout/PageContent'
+import ProductCard4 from './components/ProductCard4'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,6 +18,7 @@ function App() {
         <Carousel/>
         <ShopCard/>
         <ProductContent/>
+        <ProductCard4/>
         <Footer/>
       </BrowserRouter>
     </>
