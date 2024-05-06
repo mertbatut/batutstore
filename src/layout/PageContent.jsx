@@ -5,14 +5,14 @@ export default class ProductContent
     render() {
         return (
             <div ProductContainer>
-                <div className='BestSeller flex justify-center px-6 py-6 gap-12'>
+                <div className='BestSeller flex justify-center  py-12 gap-12'>
                     <div className='FurnitureCard flex '>
                         <div className='ItemFurniture absolute gap-1.5 flex flex-col m-8'>
                             <h6 className='font-bold text-sm text-[#252B42] leading-6'>FURNITURE</h6>
                             <h6 className='font-bold text-sm text-[#737373] leading-6'>5 Items</h6>
                         </div>
                         <div className='FurBackground'>
-                            <img src="../images/furniture.jpg" alt="" />
+                            <img className='h-full' src="../images/furniture.jpg" alt="" />
                         </div>
                     </div>
                     <div className='BestProduct'>
@@ -45,14 +45,14 @@ export default class ProductContent
                                                     <div className='ItemCard1 h-[162px] w-[183px]'>
                                                         <img src="../images/product1.png" alt="" />
                                                     </div>
-                                                    <div className='ItemCard2 flex flex-col items-center'>
-                                                        <h5>Graphic Design</h5>
-                                                        <p>English Department</p>
+                                                    <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                        <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                        <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                         {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                        <div className='Pricess'>
-                                                            <p>$16.48</p>
-                                                            <p>$6.48</p>
-                                                        </div>
+                                                        <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 </div>
@@ -63,13 +63,13 @@ export default class ProductContent
                                                         <div className='ItemCard1 h-[162px] w-[183px]'>
                                                             <img src="../images/product2.jpg" alt="" />
                                                         </div>
-                                                        <div className='ItemCard2 flex flex-col items-center'>
-                                                            <h5>Graphic Design</h5>
-                                                            <p>English Department</p>
+                                                        <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                            <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                            <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                             {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                            <div className='Pricess'>
-                                                                <p>$16.48</p>
-                                                                <p>$6.48</p>
+                                                            <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -79,13 +79,13 @@ export default class ProductContent
                                                         <div className='ItemCard1 h-[162px] w-[183px]'>
                                                             <img src="../images/product3.jpg" alt="" />
                                                         </div>
-                                                        <div className='ItemCard2 flex flex-col items-center'>
-                                                            <h5>Graphic Design</h5>
-                                                            <p>English Department</p>
+                                                        <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                            <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                            <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                             {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                            <div className='Pricess'>
-                                                                <p>$16.48</p>
-                                                                <p>$6.48</p>
+                                                            <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -97,14 +97,14 @@ export default class ProductContent
                                                     <div className='ItemCard1 h-[162px] w-[183px]'>
                                                         <img src="../images/product1.png" alt="" />
                                                     </div>
-                                                    <div className='ItemCard2 flex flex-col items-center'>
-                                                        <h5>Graphic Design</h5>
-                                                        <p>English Department</p>
+                                                    <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                        <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                        <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                         {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                        <div className='Pricess'>
-                                                            <p>$16.48</p>
-                                                            <p>$6.48</p>
-                                                        </div>
+                                                        <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
+                                                            </div>
                                                     </div>
                                                 </div>
                                                 </div>
@@ -115,13 +115,13 @@ export default class ProductContent
                                                         <div className='ItemCard1 h-[162px] w-[183px]'>
                                                             <img src="../images/product2.jpg" alt="" />
                                                         </div>
-                                                        <div className='ItemCard2 flex flex-col items-center'>
-                                                            <h5>Graphic Design</h5>
-                                                            <p>English Department</p>
+                                                        <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                            <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                            <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                             {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                            <div className='Pricess'>
-                                                                <p>$16.48</p>
-                                                                <p>$6.48</p>
+                                                            <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -131,13 +131,13 @@ export default class ProductContent
                                                         <div className='ItemCard1 h-[162px] w-[183px]'>
                                                             <img src="../images/product3.jpg" alt="" />
                                                         </div>
-                                                        <div className='ItemCard2 flex flex-col items-center'>
-                                                            <h5>Graphic Design</h5>
-                                                            <p>English Department</p>
+                                                        <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
+                                                            <h5 className='font-bold text-base'>Graphic Design</h5>
+                                                            <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                                             {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
-                                                            <div className='Pricess'>
-                                                                <p>$16.48</p>
-                                                                <p>$6.48</p>
+                                                            <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
+                                                                <p className='text-[#BDBDBD]'>$16.48</p>
+                                                                <p className='text-[#23856D]'>$6.48</p>
                                                             </div>
                                                         </div>
                                                     </div>

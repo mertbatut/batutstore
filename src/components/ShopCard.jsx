@@ -4,7 +4,7 @@ export default class ShopCard extends Component {
     render() {
         return (
             <div className='ShopContainer pt-20 pr-20 pl-20 pb-20 bg-[#FAFAFA]'>
-                <div className='Elements flex justify-between '>
+                <div className='Elements flex justify-around '>
                     <div className='ProductCard  flex items-center w-80 h-60 border-2 bg-white'>
                         <div className='ProductItem flex items-center flex-col'>
                             <h6 className='font-bold text-sm leading-5 decoration-[#737373]'>Your Space</h6>
