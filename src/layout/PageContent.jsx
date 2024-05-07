@@ -12,7 +12,7 @@ export default class ProductContent
                             <h6 className='font-bold text-sm text-[#737373] leading-6'>5 Items</h6>
                         </div>
                         <div className='FurBackground'>
-                            <img className='h-full' src="../images/furniture.jpg" alt="" />
+                            <img className='h-[796px] w-[389px]' src="../images/furniture.jpg" alt="" />
                         </div>
                     </div>
                     <div className='BestProduct'>
