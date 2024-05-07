@@ -4,7 +4,7 @@ export default class ProductCard40 extends Component {
     render() {
         return (
             <div>
-                <div className='Product4 flex flex-col gap-8 py-20'>
+                <div className='Product4 flex flex-col gap-8 pt-12 pb-12'>
                     <div className='ProductRow1 flex justify-center flex-row-reverse'>
                         <div className='RowImg  '><img className=' h-[649px]  w-[674px]' src="../images/Product6.jpg" alt="" /></div>
                         <div className='RowText flex gap-9 justify-center w-[400px] bg-[#FAFAFA]'>
