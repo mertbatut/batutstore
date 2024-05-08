@@ -10,6 +10,7 @@ import ProductCard4 from './components/ProductCard4'
 import ProductCard25 from './components/Productcard25'
 import ProductCard40 from './components/ProductCard40'
 import ShopCard2 from './components/ShopCard2'
+import Blog from './components/blog'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -24,6 +25,7 @@ function App() {
         <ProductCard25/>
         <ProductCard40/>
         <ShopCard2/>
+        <Blog/>
         <Footer/>
       </BrowserRouter>
     </>
