@@ -11,9 +11,9 @@ export default class Blog extends Component {
                             <h3 className='font-bold text-4xl text-[#252B42]'>Featured Posts</h3>
                         </div>
                     </div>
-                    <div className='BlogRow2'>
-                        <div className='BlogCard flex'>
-                            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[348px] h-[606px]'>
+                    <div className='BlogRow2 flex justify-center gap-8 '>
+                        <div className='BlogCard flex '>
+                            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[348px] h-[606px] drop-shadow-xl'>
                                 <div className='CardFixedImg '>
                                     <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
                                     <img className='h-[300px] w-[348px]' src="./images/blog1.jpg" alt="" />
@@ -47,8 +47,8 @@ export default class Blog extends Component {
                             </div>
                         </div>
                         <div className='BlogCard2'>
-                        <div className='BlogCard flex'>
-                            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[348px] h-[606px]'>
+                        <div className='BlogCard flex pb-28'>
+                            <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[348px] h-[606px] drop-shadow-xl'>
                                 <div className='CardFixedImg '>
                                     <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
                                     <img className='h-[300px] w-[348px]' src="./images/blog1.jpg" alt="" />
@@ -83,8 +83,8 @@ export default class Blog extends Component {
                         </div>
                         </div>
                         <div className='BlogCard3'>
-                        <div className='BlogCard flex'>
-                            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[348px] h-[606px]'>
+                        <div className='BlogCard1 flex'>
+                            <div className='ContentCard2 bg-[#FFFFFF] flex flex-col w-[348px] h-[606px] drop-shadow-xl'>
                                 <div className='CardFixedImg '>
                                     <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
                                     <img className='h-[300px] w-[348px]' src="./images/blog1.jpg" alt="" />
