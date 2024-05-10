@@ -11,6 +11,7 @@ import ProductCard25 from './components/Productcard25'
 import ProductCard40 from './components/ProductCard40'
 import ShopCard2 from './components/ShopCard2'
 import Blog from './components/blog'
+import Drop from './components/dropdown'
 
 
 function App() {
@@ -19,7 +20,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header/>
+        {/* <Header/>
         <Carousel/>
         <ShopCard/>
         <ProductContent/>
@@ -28,8 +29,8 @@ function App() {
         <ProductCard40/>
         <ShopCard2/>
         <Blog/>
-        <Footer/> 
-      
+        <Footer/>  */}
+      <Drop></Drop>
       </BrowserRouter>
     </>
   )
