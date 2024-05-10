@@ -24,7 +24,8 @@ export default class Header extends Component {
                                             <div id='Btn-32'>
                                                 <div className='IconSettings flex items-center'>
                                                     
-                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'><i class="fa-regular fa-user"></i>Login / Register</h1>
+                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'><i class="fa-regular fa-user"></i>Login</h1>
+                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> /  Register</h1>
                                                 </div>
 
                                             </div>
