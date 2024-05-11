@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import HomePage from './pages/HomePage'
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
-
+import BlogPage from './pages/BlogPage'
 
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
         <HomePage />
       </Route>
       <Switch>
-        <Route path='/About'>
-
+        <Route path='/Blog'>
+        <BlogPage/>
         </Route>
       </Switch>
     </>

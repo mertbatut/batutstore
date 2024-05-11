@@ -7,13 +7,13 @@ export default class Header extends Component {
             <div className='Navbar flex pt-10 py-12 justify-center 	'>
                 <div className='Container flex '>
                     <div className='NavbarStyle flex items-center gap-x-24'>
-                        <div className='NavbarBrand font-bold text-[#252B42] text-2xl'><h3>BatutStore</h3></div>
+                        <div className='NavbarBrand '><a className='font-bold text-[#252B42] text-2xl' href='/'>BatutStore</a></div>
                         <div className='NavbarCollapse flex items-center'>
                             <div className='NavbarNav flex list-none gap-6'>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="/">Home</a></li>
                                 <li><a className='text-[#252B42] font-medium text-sm/[14px]' href="#">ShopDropdown</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="About">About</a></li>
-                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Blog</a></li>
+                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Blog">Blog</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Contact</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Pages</a></li>
                             </div>
