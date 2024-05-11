@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import HomePage from './pages/HomePage'
-import { Route } from 'react-router-dom/cjs/react-router-dom.min'
-import ProductPage from './pages/ProductPage'
+import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
+
 
 
 function App() {
@@ -10,13 +10,14 @@ function App() {
 
   return (
     <>
-    <Route path='/'>
-    <HomePage/>
-    </Route>
-    
-    <Route exact path='/About'>
-    <ProductPage></ProductPage>
-   </Route>
+      <Route exact path='/'>
+        <HomePage />
+      </Route>
+      <Switch>
+        <Route path='/About'>
+
+        </Route>
+      </Switch>
     </>
   )
 }
