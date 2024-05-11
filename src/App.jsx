@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min'
-
 import HomePage from './pages/HomePage'
+import { Route } from 'react-router-dom/cjs/react-router-dom.min'
+import ProductPage from './pages/ProductPage'
 
 
 function App() {
@@ -10,9 +10,13 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-      <HomePage/>
-      </BrowserRouter>
+    <Route path='/'>
+    <HomePage/>
+    </Route>
+    
+    <Route exact path='/About'>
+    <ProductPage></ProductPage>
+   </Route>
     </>
   )
 }
