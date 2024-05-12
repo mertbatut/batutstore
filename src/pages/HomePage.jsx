@@ -530,7 +530,7 @@ export default class HomePage extends Component {
                                     <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
                                         you where you work. It's only a
                                         keystroke away.</p>
-                                    <div className='CardComments flex  '>
+                                    <div className='CardComments flex  gap-36'>
                                         <div className='TimeIcon flex gap-1.5'>                                         
                                         <i class="fa-regular fa-clock"></i>
                                             <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
@@ -565,7 +565,7 @@ export default class HomePage extends Component {
                                     <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
                                         you where you work. It's only a
                                         keystroke away.</p>
-                                    <div className='CardComments flex  '>
+                                    <div className='CardComments flex  gap-36'>
                                         <div className='TimeIcon flex gap-1.5'>                                         
                                         <i class="fa-regular fa-clock"></i>
                                             <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
@@ -601,7 +601,7 @@ export default class HomePage extends Component {
                                     <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
                                         you where you work. It's only a
                                         keystroke away.</p>
-                                    <div className='CardComments flex  '>
+                                    <div className='CardComments flex gap-36 '>
                                         <div className='TimeIcon flex gap-1.5'>                                         
                                         <i class="fa-regular fa-clock"></i>
                                             <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
