@@ -31,7 +31,7 @@ export default function CarouselWithContent() {
               </Typography>
               <div className="flex justify-center gap-2">
                 <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
-                  <h3>Start Now</h3>
+                  <a href="ProductPage">Start Now</a>
                 </Button>
 
               </div>
@@ -63,7 +63,7 @@ export default function CarouselWithContent() {
               </Typography>
               <div className="flex justify-center gap-2">
                 <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
-                  <h3>Start Now</h3>
+                <a href="ProductPage">Start Now</a>
                 </Button>
 
               </div>
@@ -95,7 +95,7 @@ export default function CarouselWithContent() {
               </Typography>
               <div className="flex justify-center gap-2">
                 <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
-                  <h3>Start Now</h3>
+                <a href="ProductPage">Start Now</a>
                 </Button>
 
               </div>
