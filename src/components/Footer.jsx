@@ -28,7 +28,7 @@ export default class Footer extends Component {
                                 <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
                                     <h5 className='font-bold text-base leading-6'>Company Info</h5>
                                     <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
-                                        <li>About Us</li>
+                                    <a href="About"><li>About Us</li></a>
                                         <li>Carrier</li>
                                         <li>We are hiring</li>
                                         <li>Blog</li>
@@ -41,7 +41,7 @@ export default class Footer extends Component {
                                 <div className='FooterRow text-[#FFFFFF] list-none flex flex-col gap-5 '>
                                     <h5 className='font-bold text-base leading-6'>Legal</h5>
                                     <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
-                                        <li>About Us</li>
+                                      <a href="About"><li>About Us</li></a>
                                         <li>Carrier</li>
                                         <li>We are hiring</li>
                                         <li>Blog</li>
