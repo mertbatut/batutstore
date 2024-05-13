@@ -10,7 +10,7 @@ export default class Header extends Component {
                     <div className='NavbarStyle flex items-center gap-x-24'>
                         <div className='NavbarBrand '><a className='font-bold text-[#252B42] text-2xl' href='/'>BatutStore</a></div>
                         <div className='NavbarCollapse flex items-center'>
-                            <div className='NavbarNav flex list-none gap-6 flex items-center'>
+                            <div className='NavbarNav flex list-none gap-6  items-center'>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="/">Home</a></li>
                                 <details className="dropdown">
                                     <summary className="m-1 ">Shop</summary>
@@ -20,7 +20,7 @@ export default class Header extends Component {
                                 </details>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="About">About</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Blog">Blog</a></li>
-                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Contact</a></li>
+                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Contact">Contact</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Pages</a></li>
                             </div>
                             <div className='NavbarNav flex list-none gap-6 items-center'>

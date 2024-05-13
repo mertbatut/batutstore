@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
 import BlogPage from './pages/BlogPage'
 import ProductList from './pages/ProductList'
+import Contact from './pages/Contact';
 
 
 
@@ -20,6 +21,9 @@ function App() {
         <Route path='/Blog'><BlogPage/></Route>
         <Route path='/ProductPage'>
           <ProductList/>
+          </Route>
+          <Route path='/Contact'>
+          <Contact/>
           </Route>
         
       </Switch> 

@@ -12,9 +12,10 @@ export default class Footer extends Component {
                             <p className='text-[#FFFFFF] font-normal text-sm leading-5'>the quick fox jumps over the lazy dog</p>
                             </div>
                         <div className='FooterOut'>
-                            <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-xl tracking-widest' size="lg" color="blue">
+                           <a href="Contact"> 
+                           <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-xl tracking-widest' size="lg" color="blue">
                             <h3>Contact Us</h3>
-                        </Button>
+                        </Button></a>
                         </div>
                         
                         
