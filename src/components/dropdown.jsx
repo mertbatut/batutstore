@@ -5,11 +5,11 @@ export default class Drop extends Component {
     render() {
         return (
             <div>
-                <div className='DropDown'>
-                    <div className='DropShop drop-shadow-2xl w-[155px] h-[58px] border border-[#E6E6E6] bg-[#F9F9F9]'>
+                <div className='DropDown w-[1440px] h-[426px]'>
+                    <div className='DropShop drop-shadow-2xl w-[155px] h-[58px] border border-[#E6E6E6] bg-[#F9F9F9] flex items-center justify-center'>
                         <h1><i class="fa-solid fa-caret-down"></i>SHOP</h1>
                     </div>
-                    <div className='DropMenu bg-[#FAFAFA] drop-shadow-2xl'>
+                    <div className='DropMenu bg-[#FAFAFA] drop-shadow-2xl flex justify-center'>
                         <div className='DropContainer w-[1050px]'>
                             <div className='DropRow flex justify-center gap-8'>
                                 <div className='ShopHead flex flex-col py-12 gap-5'>
@@ -57,7 +57,7 @@ export default class Drop extends Component {
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Kitchen</h1></Link>
                                     </div>
                                 </div>
-                                <div className='ShopHead5 w-[321px] h-full object-cover'>
+                                <div className='ShopHead5 w-[321px] h-[368px] '>
                                     <img src="./images/Dropdown.jpg" alt="" />
                                 </div>
                                 <div className='ProductLayout'></div>

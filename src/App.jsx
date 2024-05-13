@@ -6,11 +6,13 @@ import BlogPage from './pages/BlogPage'
 import ProductList from './pages/ProductList'
 
 
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
+
       <Route exact path='/'>
         <HomePage />
       </Route>
@@ -20,7 +22,7 @@ function App() {
           <ProductList/>
           </Route>
         
-      </Switch>
+      </Switch> 
     </>
   )
 }
