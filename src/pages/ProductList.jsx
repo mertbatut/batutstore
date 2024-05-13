@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
 import FilterRow from '../components/FilterRow'
+import Filters from '../components/Filters'
 
 
 export default class ProductList extends Component {
@@ -120,6 +121,7 @@ export default class ProductList extends Component {
                     </div>
                 </div>
                <FilterRow/>
+               <Filters/>
             </div>
         )
     }
