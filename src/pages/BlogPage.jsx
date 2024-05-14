@@ -12,7 +12,7 @@ export default class BlogPage extends Component {
             <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
               <div className='CardFixedImg '>
                 <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
               </div>
               <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                 <div className='CardHeader1 flex gap-4'>
@@ -47,7 +47,7 @@ export default class BlogPage extends Component {
               <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
                 <div className='CardFixedImg '>
                   <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
                 </div>
                 <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                   <div className='CardHeader1 flex gap-4'>
@@ -86,7 +86,7 @@ export default class BlogPage extends Component {
             <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
               <div className='CardFixedImg '>
                 <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
               </div>
               <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                 <div className='CardHeader1 flex gap-4'>
@@ -121,7 +121,7 @@ export default class BlogPage extends Component {
               <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
                 <div className='CardFixedImg '>
                   <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
                 </div>
                 <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                   <div className='CardHeader1 flex gap-4'>
@@ -159,7 +159,7 @@ export default class BlogPage extends Component {
             <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
               <div className='CardFixedImg '>
                 <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
               </div>
               <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                 <div className='CardHeader1 flex gap-4'>
@@ -194,7 +194,7 @@ export default class BlogPage extends Component {
               <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
                 <div className='CardFixedImg '>
                   <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="./images/blog1.jpg" alt="" />
+                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
                 </div>
                 <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
                   <div className='CardHeader1 flex gap-4'>

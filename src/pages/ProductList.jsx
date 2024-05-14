@@ -53,7 +53,7 @@ export default class ProductList extends Component {
                                     </a>
                                 </div>
                                 <div className='ClothosItemImg1 '>
-                                    <img className='w-[205px] h-[223px] ' src="./images/clothos1.jpg" alt="" />
+                                    <img className='w-[205px] h-[223px] ' src="https://s3-alpha-sig.figma.com/img/c9a6/4276/a14f623312021f83a598c945b5165068?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=Cv9e-e7csVUO5Pyia-Xm5sPPfwH9LfAHBzSdhYx4wbAHT367AWAf-rVvZC4ldbzMV5u2FOHLlMYfN6pMGN5vmStliJo~cWRVpbTed6FEMXbutKYgGAPUVYtrTJmnSmu-Mxqj5hRnV8RhyFVTBji2btC-dmaxkgvwWG~uSvXYGEVw-cIw2UvU3EC9HzaWHx-jC4EaJWIL4TAmT8g8C1niUD3oWyBbdfnkSJQaAT9xpATPl7TgDwMQ95oSwCTIzKa9gDc7lzojiQbtb9Y5uWK9FOX5aeHpw-5q92QsYh~3sVj967F916zfIvwUNvS~8Zx5YEg6KHoxCixabMuL7XHVlQ__" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@ export default class ProductList extends Component {
                                     </a>
                                 </div>
                                 <div className='ClothosItemImg2'>
-                                    <img className='w-[205px] h-[223px] ' src="./images/clothos2.jpg" alt="" />
+                                    <img className='w-[205px] h-[223px] ' src="https://s3-alpha-sig.figma.com/img/96c8/6912/d491d421800e62998b9af7c838cc25d1?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ME~~D9gkMEvSPsSJVuH6KA0yA13zvRIbbxyYbKoZrLpoSY9OjuujJf5cCvlKL4KM4ukI-zHIC6~~45OV5d4KjiPI8soTaAHD9fMT7UjncHaCkVYK68cmPWrdNCSXlYjuZESEkFaKTKMMiP3Ky9FN7r2n-41pEmamlpt-q4z29M1shQrSkYTGTFTeAT8kk1Fu48cB0QgV2Ze9L5m3k07oRPFvy99XjT3arKAvbN4VISMUm7SZ9Tuc6JOKeBaH0eED8lkPrH~uGVaJ~zl9uPEwuuNbtvPtWQP0ngOVp4mJFzqRX2xUgJ7hWBxNwTofpgu20QxRs0JWABruTRndC5c72A__" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -79,7 +79,7 @@ export default class ProductList extends Component {
                                     </a>
                                 </div>
                                 <div className='ClothosItemImg3'>
-                                    <img className='w-[205px] h-[223px]' src="./images/clothos3.jpg" alt="" />
+                                    <img className='w-[205px] h-[223px]' src="https://s3-alpha-sig.figma.com/img/7bc2/f9fb/559eeb7e6b92ed49f40128729a9f74f1?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pq8IGJpqqk8Ecf2su1rlMRNV0MovTES6VNbnTh27wPHoiDZPKBjYhUx6n1Mxa0PHR8JkwYf3b4FnBWcdig8EEgpm0aj3a9-KuzPNX~hL16OCKEr-tEFSYuhgfdNIITYGdCgwynZC4Qoo72~dE8I9AF5yad8QGn9dYkoUfOdEPpigWI-od6zXqie6gkvmoHIcyPs~cw5aqFdJIQ~wYUkyFwRqIWdAegiR56IV6rb5CMJLHSyhY7Am2U9zur4DxbTBhQL8HRsdU2LpwJEc36285ube5YW7mUSRtq2HdaOUTbtaZq2ixn608s-Z14KRFGxeHi-XSQ3ShCeasRgfpg9XSw__" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@ export default class ProductList extends Component {
                                     </a>
                                 </div>
                                 <div className='ClothosItemImg4'>
-                                    <img className='w-[205px] h-[223px]' src="./images/clothos4.jpg" alt="" />
+                                    <img className='w-[205px] h-[223px]' src="https://s3-alpha-sig.figma.com/img/6e72/2a25/b740dd4eea5b5580d5e1601a818f98c2?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=KaX8IF1XQX0fPYLIgEXn5-avLngjUDZ2rKPgBJeFLfs3A1ahAsDW-OlT6IAxbI1fD5ECbONXdeuLtsqhhU-R6ELJQJKCW6LnZ-dgqdTlDCFjgZirSHH1-5v9qH-DEsy3k0sSEGV0HRVtuoC73Ea5IGPIuiwaeUDJENYhGEe85TKJQ2ujry3wGfaREpno1U4jaIoDRxMe8y3GgOoSWNzvcx1oMotkzCmG7~XD6x-nu553C3o~oQw6vIYn~amANQ4nNSqaFznp9h~RBcwcs6evvfpCO7Gr1~fCbu~pUh3FhCnhfXLAEK84i2O-Pho0JKV2WU8LZ6FtMFpI1dloZ6hx1A__" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ export default class ProductList extends Component {
                                     </a>
                                 </div>
                                 <div className='ClothosItemImg5'>
-                                    <img className='w-[205px] h-[223px]' src="./images/clothos5.jpg" alt="" />
+                                    <img className='w-[205px] h-[223px]' src="https://s3-alpha-sig.figma.com/img/2650/d8d7/92d83e3292df63340b2a44fd9763c159?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ZqaS7EX1zw3Ko8j-FrHCCVBLQS7rk2cad-kXAJRrrRtG3tlc05pDfha3qiAf0ihW~RfTu0o6G5i1JjhEhqV7ub989MEFvtgXunf~s~327VCGSKVokpG2N5wx3Kp395tPtf1nHA5FsCTMeHk7k4u9bEKnZ1U~pPpbQdPf9fQE-wP709qU0CUqTE0XDWo82mgUOS7y4pwEQ3770~HDE65sXm7Mt9LmVhj7l-Ei0M6Of89ld-hhnc26F2LIPg9HtePyrlivG2Jo7pU9rA3Ryo0JIlLhKnkFvwtzjTzpqGW-Ui3cRRgTpESqHTo9sVzQIwzk6RzyS8rrYmiM1B5zotge3w__" alt="" />
                                 </div>
                             </div>
                         </div>
@@ -117,7 +117,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product1.png" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/2a2d/cc86/6e19165f854d8ad6ea22db2c70a489f8?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BdcdC2rBdZLHdCZ2P9z3D5Drj1JVOO-8wfcx3MyRFR~vIYeZ2NTyN6ozc4DTbEcp8IISj4Z3~mHJk3Q23-e1Io7RaRaQafZlNKSO0MxdCpcl~26ZCCSSqL6yFeM0DmK-bEG4sXA6laX3AtUh6EDGvu-hEl3oL6xNx5WZOe8onVmMneqLkeLsf0~NVNQiXye2Q2eLCG2r3EJ8II3~YaQCAyyP5PalffMWjo4~agp-LuNfYNIQkVbo3vEpL7tJD9qxLZ2JE~iNkKVipHo5WCIpJxkyavJgKW8hiTibjfXwXhnNXk1oTnPOcpscDFG6rCEpnaCjY9DCAaxlkmI39ArIng__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -148,7 +148,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -179,7 +179,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -210,7 +210,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product3.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/9da4/35bc/81f8160b963532c03d0f3f84bf89c4ae?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pWQK76LsoNS8PH22yuBIF4z~KLRf~GBDIix27c~hiSvV9TA-Yh200970XUJw1~SVIzFUkGi8FuKkPU8qJ31RmNchnaZuz9w0jw6yfOHjt1-6x3IpY~Q0dOzIP5I5Kq7o1GN2Tmuhp6Ssh1Eb4MnZnwgV4qM9U0O6Vo9jrx-x5Zx-QP4faJ2Udy2r1kuyxxrvTjJsU7pp9dF6kQxaiE1d7hWJ028m838wj~6NCr2nWmHrfFSWZOvRi3YW8vgVIEiV-h~e~KZPapnOv6qMF8RQv7DvJNUY-0QyffFrtQBOiRhGMoMF8wemm7w5ZYrD1WpAXiV~7cmk6h97vI9kBkWdHw__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -245,7 +245,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product1.png" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/2a2d/cc86/6e19165f854d8ad6ea22db2c70a489f8?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BdcdC2rBdZLHdCZ2P9z3D5Drj1JVOO-8wfcx3MyRFR~vIYeZ2NTyN6ozc4DTbEcp8IISj4Z3~mHJk3Q23-e1Io7RaRaQafZlNKSO0MxdCpcl~26ZCCSSqL6yFeM0DmK-bEG4sXA6laX3AtUh6EDGvu-hEl3oL6xNx5WZOe8onVmMneqLkeLsf0~NVNQiXye2Q2eLCG2r3EJ8II3~YaQCAyyP5PalffMWjo4~agp-LuNfYNIQkVbo3vEpL7tJD9qxLZ2JE~iNkKVipHo5WCIpJxkyavJgKW8hiTibjfXwXhnNXk1oTnPOcpscDFG6rCEpnaCjY9DCAaxlkmI39ArIng__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -276,7 +276,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -307,7 +307,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -338,7 +338,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product3.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/9da4/35bc/81f8160b963532c03d0f3f84bf89c4ae?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pWQK76LsoNS8PH22yuBIF4z~KLRf~GBDIix27c~hiSvV9TA-Yh200970XUJw1~SVIzFUkGi8FuKkPU8qJ31RmNchnaZuz9w0jw6yfOHjt1-6x3IpY~Q0dOzIP5I5Kq7o1GN2Tmuhp6Ssh1Eb4MnZnwgV4qM9U0O6Vo9jrx-x5Zx-QP4faJ2Udy2r1kuyxxrvTjJsU7pp9dF6kQxaiE1d7hWJ028m838wj~6NCr2nWmHrfFSWZOvRi3YW8vgVIEiV-h~e~KZPapnOv6qMF8RQv7DvJNUY-0QyffFrtQBOiRhGMoMF8wemm7w5ZYrD1WpAXiV~7cmk6h97vI9kBkWdHw__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -373,7 +373,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product1.png" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/2a2d/cc86/6e19165f854d8ad6ea22db2c70a489f8?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BdcdC2rBdZLHdCZ2P9z3D5Drj1JVOO-8wfcx3MyRFR~vIYeZ2NTyN6ozc4DTbEcp8IISj4Z3~mHJk3Q23-e1Io7RaRaQafZlNKSO0MxdCpcl~26ZCCSSqL6yFeM0DmK-bEG4sXA6laX3AtUh6EDGvu-hEl3oL6xNx5WZOe8onVmMneqLkeLsf0~NVNQiXye2Q2eLCG2r3EJ8II3~YaQCAyyP5PalffMWjo4~agp-LuNfYNIQkVbo3vEpL7tJD9qxLZ2JE~iNkKVipHo5WCIpJxkyavJgKW8hiTibjfXwXhnNXk1oTnPOcpscDFG6rCEpnaCjY9DCAaxlkmI39ArIng__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -404,7 +404,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -435,7 +435,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product2.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/c8ab/3a82/34e95a157586711065a45229598852e3?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hF5JjYAScuKM1a9xYYaPK3ZjnmhR4wdUwvgPZM2bLf46i1zEzQSvhOL8UF2UrPTjC9D-YzI2GGx64xVBK1XGAgcBmmK4Gf6BvZ2de3x6EWEKLzMee9QrpLgeM88um4Wc9zeYWJL-GVRcyjwnwDPiuCl8WQyDfE81lxqjFPzpbedzogvsnQwSJrF-YH-NAa09eATEj7erjkiZmW4xpixiONCjmUvUIV78gIXuAryKn~k5TpJgx7PvkvnbSfh-FwJcpY8R02ZlJ9RX3~13j38l4DYahBKCXTHVrzgHe6gnXHuUKDHUgJgBFsABqd4onbLiCKZaOdHtFXeBBReCyIjIhA__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>
@@ -466,7 +466,7 @@ export default class ProductList extends Component {
                         <div className='GroupTabProduct flex flex-col items-center'>
                             <div className='ItemCard ItemCard flex flex-col items-center'>
                                 <div className='ItemCard1 h-[300px] w-[239px] '>
-                                    <img src="../images/product3.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/9da4/35bc/81f8160b963532c03d0f3f84bf89c4ae?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pWQK76LsoNS8PH22yuBIF4z~KLRf~GBDIix27c~hiSvV9TA-Yh200970XUJw1~SVIzFUkGi8FuKkPU8qJ31RmNchnaZuz9w0jw6yfOHjt1-6x3IpY~Q0dOzIP5I5Kq7o1GN2Tmuhp6Ssh1Eb4MnZnwgV4qM9U0O6Vo9jrx-x5Zx-QP4faJ2Udy2r1kuyxxrvTjJsU7pp9dF6kQxaiE1d7hWJ028m838wj~6NCr2nWmHrfFSWZOvRi3YW8vgVIEiV-h~e~KZPapnOv6qMF8RQv7DvJNUY-0QyffFrtQBOiRhGMoMF8wemm7w5ZYrD1WpAXiV~7cmk6h97vI9kBkWdHw__" alt="" />
                                 </div>
                                 <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
                                     <h5 className='font-bold text-base'>Graphic Design</h5>

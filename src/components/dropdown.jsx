@@ -58,7 +58,7 @@ export default class Drop extends Component {
                                     </div>
                                 </div>
                                 <div className='ShopHead5 w-[321px] h-[368px] pt-12'>
-                                    <img src="./images/Dropdown.jpg" alt="" />
+                                    <img src="https://s3-alpha-sig.figma.com/img/ccf8/3949/44f14514fce89ee53d90655a1819a12f?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iTsWRzoy8EH2RqFKeb35OPYZfuqzzeeihHdLJEyjsOnoIUyEnWOYjYdMg5EBN9~F8pC1OZWtWaz3hpfVQi9sFw2RQc2jg1iypBVsh9nfPZf9Nt9A2wDSPjshuIi8lb~wHSkRAquinHZv~10zTiQM1HM-AWPPAIOeePeUeRqNzdt7LmbPnhborIS39r-m14~uX-MjcwR6BgCcQZiibo0INOijxGO33yuuYweyV8mZfI9q~rd5vEwVuf76iJDnTry0P9q4ab~wp08C6Ezo-yalN9g6TCgHP5SqurEMw3XJqvjXuq9RygsKfw9EhH4srevD2HYnfXZl1UoszKAfRPqu9Q__" alt="" />
                                 </div>
                                 <div className='ProductLayout'></div>
                                 <div className='ProductType'></div>
