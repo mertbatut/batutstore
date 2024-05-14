@@ -21,7 +21,7 @@ export default class Header extends Component {
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="About">About</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Blog">Blog</a></li>
                                 <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Contact">Contact</a></li>
-                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="#">Pages</a></li>
+                                <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Action">Pages</a></li>
                             </div>
                             <div className='NavbarNav flex list-none gap-6 items-center'>
                                 <div className='LogReg flex items-center pl-24'>

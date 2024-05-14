@@ -6,6 +6,7 @@ import BlogPage from './pages/BlogPage'
 import ProductList from './pages/ProductList'
 import Contact from './pages/Contact';
 import Team from './pages/Team';
+import Subscription from './layout/Subscription';
 
 
 
@@ -30,6 +31,9 @@ function App() {
           </Route>
           <Route path='/About'>
           <Team/>
+          </Route>
+          <Route path='/Action'>
+          <Subscription/>
           </Route>
      
         
