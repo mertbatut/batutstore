@@ -26,16 +26,16 @@ export default class Header extends Component {
                             <div className='NavbarNav flex list-none gap-6 items-center'>
                                 <div className='LogReg flex items-center pl-24'>
                                     <li>
-                                        <a href="">
+                                        
                                             <div id='Btn-32'>
                                                 <div className='IconSettings flex items-center'>
 
-                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'><i class="fa-regular fa-user"></i>Login</h1>
-                                                    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> /  Register</h1>
+                                                  <a href="Login">  <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> <i class="fa-regular fa-user"></i>Login</h1></a>
+                                                  <a href="">    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> /  Register</h1></a>
                                                 </div>
 
                                             </div>
-                                        </a>
+                                       
                                     </li>
                                 </div>
                                 <div className='FindTool  flex gap-12'>
