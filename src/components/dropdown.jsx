@@ -1,21 +1,22 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+ import React, { Component } from 'react'
+ import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 
-export default class Drop extends Component {
+ export default class Drop extends Component {
+    
     render() {
         return (
             <div>
-                <div className='DropDown w-[1240px] h-[426px]'>
-                    <div className='DropShop drop-shadow-2xl w-[155px] h-[58px] border border-[#E6E6E6] bg-[#F9F9F9] flex items-center justify-center'>
-                        <h1><i class="fa-solid fa-caret-down"></i>SHOP</h1>
-                    </div>
-                    <div className='DropMenu bg-[#FAFAFA] drop-shadow-2xl flex justify-center'>
-                        <div className='DropContainer w-[1050px]'>
-                            <div className='DropRow flex justify-center gap-8'>
-                                <div className='ShopHead flex flex-col py-12 gap-5'>
-                                    <h5 className='font-bold text-base text-[#252B429]'>Shop Layout</h5>
-                                    <div className='ShopLayout1 flex flex-col gap-3'>
-                                        <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Full Width</h1></Link>
+                 <div className='DropDown w-[1240px] h-[426px]'>
+                     <div className='DropShop drop-shadow-2xl w-[155px] h-[58px] border border-[#E6E6E6] bg-[#F9F9F9] flex items-center justify-center'>
+                   <h1><i class="fa-solid fa-caret-down"></i>SHOP</h1>
+               </div>
+               <div className='DropMenu bg-[#FAFAFA] drop-shadow-2xl flex justify-center'>
+                   <div className='DropContainer w-[1050px]'>
+                       <div className='DropRow flex justify-center gap-8'>
+                           <div className='ShopHead flex flex-col py-12 gap-5'>
+                               <h5 className='font-bold text-base text-[#252B429]'>Shop Layout</h5>
+                              <div className='ShopLayout1 flex flex-col gap-3'>
+                                   <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Full Width</h1></Link>
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Sidebar Right</h1></Link>
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Sidebar Left</h1></Link>
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>List View</h1></Link>
@@ -45,7 +46,6 @@ export default class Drop extends Component {
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Right Product</h1></Link>
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Special Product</h1></Link>
                                         <Link to="/hakkimizda"><h1 className='font-bold text-sm text-[#737373]'>Outstoct Store</h1></Link>
-
                                     </div>
                                 </div>
                                 <div className='ShopHead4 flex flex-col py-12 gap-6 '>
@@ -68,6 +68,7 @@ export default class Drop extends Component {
                     </div>
                 </div>
             </div>
-        )
+  )
+
     }
 }

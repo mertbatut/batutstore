@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import Drop from './dropdown'
 
+
 export default class Header extends Component {
     render() {
         return (
-
+           
             <div className='Navbar flex pt-10 py-12 justify-center 	'>
                 <div className='Container flex '>
                     <div className='NavbarStyle flex items-center gap-x-24'>
@@ -31,7 +32,7 @@ export default class Header extends Component {
                                                 <div className='IconSettings flex items-center'>
 
                                                   <a href="Login">  <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> <i class="fa-regular fa-user"></i>Login</h1></a>
-                                                  <a href="">    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> /  Register</h1></a>
+                                                  <a href="Register">    <h1 className='font-bold text-[#23A6F0] text-sm/[14px]'> /  Register</h1></a>
                                                 </div>
 
                                             </div>
@@ -73,6 +74,7 @@ export default class Header extends Component {
                             </div>
 
                         </div>
+                        
                         {/* <div className='NavbarToggler'>
                             <div className='NavbarTogglerIcon'></div>
                         </div> */}

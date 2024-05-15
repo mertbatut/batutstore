@@ -7,6 +7,7 @@ import ProductList from './pages/ProductList'
 import Contact from './pages/Contact';
 import Team from './pages/Team';
 import Subscription from './layout/Subscription';
+import LoginPage from './components/Login';
 
 
 
@@ -35,7 +36,9 @@ function App() {
           <Route path='/Action'>
           <Subscription/>
           </Route>
-     
+          <Route path='/Login'>
+          <LoginPage/> 
+          </Route>
         
       </Switch>  
       
