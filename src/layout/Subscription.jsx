@@ -16,7 +16,7 @@ export default class Subscription extends Component {
                 <p className='font-normal text-sm flex text-[#FFFFFF]  ]'>of Classical physics: Newtonian mechanics </p>
               </div>
               <div className='SubsText2'>
-                <input className='rounded-md h-[58px] w-[600px]' type="text" placeholder='Your Mail' />
+                <input className='rounded-md h-[58px] w-[483px]' type="text" placeholder='Your Mail' />
                 <button className='rounded-md w-[117px] h-[58px] border bg-[#23A6F0] text-sm font-normal text-[#FFFFFF] '>Subscribe</button>
               </div>
               <h2 className='SubsText3 font-bold text-4xl text-[#FFFFFF]'>
