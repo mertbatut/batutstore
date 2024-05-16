@@ -2,6 +2,8 @@ import React from 'react'
 import Header2 from '../components/Header2'
 import { Breadcrumb } from "flowbite-react";
 import { HiHome } from "react-icons/hi";
+import Team from '../components/Team';
+import Footer from '../components/Footer';
 
 
 export default function TeamPage() {
@@ -38,6 +40,25 @@ export default function TeamPage() {
                     </div>
                 </div>
             </div>
+            <Team/>
+            <div className='FreeTrial'>
+                <div className="TrialContainer">
+                    <div className="TrialRow flex gap-24 justify-center">
+                        <div className="TrialContent flex flex-col items-center gap-8 py-20">
+                            <h2 className='text-[40px] leading-[50px] tracking-wide font-bold'>Start your 14 days free trial</h2>
+                            <h6 className='text-sm text-[#737373] font-normal w-[411px]'>Met minim Mollie non desert Alamo est sit cliquey dolor do met sent. RELIT official consequent.</h6>
+                            <button className='py-4 px-10 rounded-md bg-[#23A6F0] font-bold text-sm text-[#FFFFFF]'>Try Free Now</button>
+                            <div className='TrialIcon flex gap-9'>
+                            <img src="./images/twitter.svg" alt="" />
+                            <img src="./images/facebook.svg" alt="" />
+                            <img src="./images/instagram.svg" alt="" />
+                            <img src="./images/linkedn.svg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <Footer/>
         </div>
     )
 }
