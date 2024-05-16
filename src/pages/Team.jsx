@@ -6,7 +6,7 @@ export default class Team extends Component {
   render() {
     return (
       <div>
-        <Header/>
+       
         <div className='TeamMain flex flex-col items-center py-28 gap-28'>
             <div className='TeamRow1 flex flex-col items-center'>
                 <div className='TeamText1'> 
@@ -53,7 +53,7 @@ export default class Team extends Component {
                 </div>
             </div>
         </div>
-        <Footer/>
+      
       </div>
     )
   }
