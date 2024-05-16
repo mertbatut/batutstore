@@ -3,6 +3,7 @@ import '../index.css'
 import Header from '../components/Header'
 import CarouselWithContent from '../components/Carousels'
 import Footer from '../components/Footer'
+import Brands from '../components/Brands'
 export default class HomePage extends Component {
     render() {
         return (
@@ -505,6 +506,7 @@ export default class HomePage extends Component {
 
                     </div>
                 </div>
+                <Brands/>
                 <div className='BlogContainer flex flex-col gap-20'>
                     <div className='BlogRow'>
                         <div className='BlogContent flex flex-col items-center gap-2.5 pt-32'>

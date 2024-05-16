@@ -8,7 +8,8 @@ import Contact from './pages/Contact';
 import About from './pages/About';
 import Subscription from './layout/Subscription';
 import LoginPage from './components/Login';
-
+import Price from './pages/Pricing';
+import TeamPage from './pages/TeamPage';
 
 
 
@@ -39,6 +40,12 @@ function App() {
           </Route>
           <Route path='/Login'>
           <LoginPage/> 
+          </Route>
+          <Route path='/Pricing'>
+          <Price/> 
+          </Route>
+          <Route path='/TeamPage'>
+          <TeamPage/> 
           </Route>
         
       </Switch>  
