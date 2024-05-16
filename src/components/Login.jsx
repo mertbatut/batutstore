@@ -19,12 +19,12 @@ const LoginPage = () => {
             <div className='LoginRow1 flex flex-col gap-3 pb-3'>
                 <h1 className='text-[#FFFFFF]'>Mail Adresinizi Giriniz</h1>
                 <input className='w-[400px] h-[40px] rounded-md border-2' type="mail" placeholder='E-mail'/>
-                <button className='w-[130px] h-[40px] bg-[#23A6F0] text-[#FFFFFF]' type='submit'>Submit</button>
+                
             </div>
             <div className='Loginrow2 flex flex-col gap-3 '>
             <h1 className='text-[#FFFFFF]'>Şifrenizi Giriniz</h1>
                 <input className='w-[400px] rounded-lg border-2 h-[40px]' type="password" placeholder='Şifrenizi Giriniz'/>
-                <button className='w-[130px] h-[40px] bg-[#23A6F0] text-[#FFFFFF]' type='submit' >Submit</button>
+                <button className='w-[130px] h-[40px] bg-[#23A6F0] text-[#FFFFFF]' type='submit' >Login</button>
             </div>
            
         </div>
