@@ -30,7 +30,7 @@ export default function CarouselWithContent() {
                 small scale just do not act that way.</h4> 
               </Typography>
               <div className="flex justify-center gap-2">
-                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
+                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-xl' size="lg" color="blue">
                   <a href="ProductPage">Start Now</a>
                 </Button>
 
@@ -62,7 +62,7 @@ export default function CarouselWithContent() {
                 small scale just do not act that way.
               </Typography>
               <div className="flex justify-center gap-2">
-                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
+                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-xl' size="lg" color="blue">
                 <a href="ProductPage">Start Now</a>
                 </Button>
 
@@ -94,7 +94,7 @@ export default function CarouselWithContent() {
                 small scale just do not act that way.
               </Typography>
               <div className="flex justify-center gap-2">
-                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-2xl' size="lg" color="blue">
+                <Button className='w-52 h-16 rounded-md px-4 py-4 gap-2.5 font-bold text-xl' size="lg" color="blue">
                 <a href="ProductPage">Start Now</a>
                 </Button>
 
