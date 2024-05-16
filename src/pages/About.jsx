@@ -100,6 +100,12 @@ export default function About() {
                     </div>
                 </div>
             </div>
+            <div className='VideoContainer flex justify-center pt-28 pb-20'>
+               <div className="VideoCard ">
+                <button className='absolute w-[92px] h-[92px] bg-[#23A6F0] rounded-full'><i class="fa-solid fa-play fa-2x text-white"></i></button>
+                <div className=''><img className='w-[989px] h-[540px] rounded-2xl' src="https://s3-alpha-sig.figma.com/img/bf53/61f3/08dd0c5a04f10121bc68f6cb9ff0d63d?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=c68LoUmKz2VMmeaoTCzutTIiKnQ6cGs~EbWCbCGOlXlE-PZy9oaUO4y~icSOupuPpuyxz1OJn0ssgXhgXowN~MEfLFv8uOuqPyjcRlSlyK5XJ396e9vJz06BwXzLDTSrm3GgG7AEWned~KfLhwHPWKn2mcCXrc-Uknlqm5vXgQaA-PiEFbl-8jt5QdRAIVdMfQM1X421x5mcuuUnO0ie9vkceqoV0~HGWtSZ9e-ZYTpxBJTA7xrh5kV~rfbXrfxFB7n1axNccZT24-Ye4tluiD24VzPEyav53lTEdZX4owLZdfyHQ2MTzKCAz98YAFSHVSVFvOPCyK0fI91IpgbrFw__" alt="" /></div>
+               </div>
+            </div>    
             <Footer />
         </div>
 
