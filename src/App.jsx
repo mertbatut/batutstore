@@ -5,7 +5,7 @@ import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
 import BlogPage from './pages/BlogPage'
 import ProductList from './pages/ProductList'
 import Contact from './pages/Contact';
-import Team from './pages/Team';
+import About from './pages/About';
 import Subscription from './layout/Subscription';
 import LoginPage from './components/Login';
 
@@ -19,7 +19,7 @@ function App() {
   return (
     
     <>
-        
+
        <Route exact path='/'>
         <HomePage />
       </Route>
@@ -32,7 +32,7 @@ function App() {
           <Contact/>
           </Route>
           <Route path='/About'>
-          <Team/>
+          <About/>
           </Route>
           <Route path='/Action'>
           <Subscription/>
