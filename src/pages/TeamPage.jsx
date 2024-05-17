@@ -27,7 +27,7 @@ export default function TeamPage() {
             </div>
             <div className='TeamImageGal '>
                 <div className="TeamGalCont  pl-10">
-                    <div className="TeamHero flex gap-2 ">
+                    <div className="TeamHero flex gap-2 justify-center">
                         <img className='w-[700px] h-[530px] object-cover' src="https://s3-alpha-sig.figma.com/img/e98c/6914/973e6a41dfef7ffabf70f468edcc4107?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=V68Jayxd7vnAW6eY-NsBocpBfJcXzIk1oCs4peD5mHJNQRmhh~Qn4btRikrCKfFNOC0HAxTblCYjgBdPFBvB-~ozfwLHIjkPDLkb46quUOphkoteNcb07ls27DG6Q9pt1xLmggj0jDr3OPlEx3wlEQj-0ZwGJ1MUpx1zNtMcf9maeHBC0FIAfL0iSYlW9ez5rCe-Fd3fWTMo-kP31esGn6BTNC4yVNq3IdB7Lkk45a0ZWUzeLwUc-dWERc48tDn~QyIL4PmRkjdbYz2aPKrT5w8q~UtzWDxX4D6ueVSHXArAVJW7DyKF8M~NkAFImLYbMt8IAD2wzIywxfxxzJfytw__" alt=""></img>
                        <div className='flex flex-col gap-2'>
                         <img className='w-[361px] h-[260px] object-cover' src="https://s3-alpha-sig.figma.com/img/5c2a/4592/b5f3cb754566bde7b62ef5da4222383b?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AsEv2EvcXJ67rzM0hgjig4VBBncA-SqrGbycc3GLjqPm3cNtbtMcoq6DoINmoLlygWRZMYxgp-icyBHOzwva4D5pWamVHL-QOYGTVK1CmCWN6wf-IccH8DFFkC79QAFveCEf~2dMgTyxa9MGdT~R9HNiQtrDx1iefAQ1fZklA7-RJylbLLUOERwe0RkxeZiW3VoUxDgBVYizrahQ00lL8bhGzX7TKhFTTgzr3JF425FrY4D~zml-XZhUB3VcTqX3pvII~YCSoV7TjDXwiuVGxvVY~Y-e1bjSaBpibA3fjpFmZIV9lt67WVZNZBeo2TU2C~chx2vBzzrI3TZ1mLXJGQ__" alt=""></img>

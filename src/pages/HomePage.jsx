@@ -52,7 +52,7 @@ export default class HomePage extends Component {
                                 <h6 className='font-bold text-sm text-[#737373] leading-6'>5 Items</h6>
                             </div>
                             <div className='FurBackground'>
-                                <img className='h-[796px] w-[389px]' src="https://s3-alpha-sig.figma.com/img/6e29/64f8/744f4e734b4d2dd0c1041ae3d0687be0?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HhyjkVD-daOl6WAofc~2Rlq5E-u6XgjiYikuDpeIK-gyzMlpD9g3cfxFDrXW99xGQ64pkRATgonx69GSIUcjcDPQXkuJdV1pLhy5xOROSOfAo~yQNLxKBnVjrT6tSQBhUTawECevAaJ3Tpdj2dcUALSZ-vR~oBssu6SSenB95QosrEgmmFYia7b-WUf4-VW5VqmzMbuqkWmuteUPAgU~gvvgEzru09wKseI-s2ow1NXuC9DZSAxmXbaw2SQmpdEvDTMctG9jo8i0SH6fMDbZNcHEriIaCh3tzmLPNQVU14lFaa~rdg92BDbwf4NrGH3mTvDNUDQUYIIioOcHEce2uA__" alt="" />
+                                <img className='h-[796px] w-[389px] object-cover' src="https://s3-alpha-sig.figma.com/img/6e29/64f8/744f4e734b4d2dd0c1041ae3d0687be0?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HhyjkVD-daOl6WAofc~2Rlq5E-u6XgjiYikuDpeIK-gyzMlpD9g3cfxFDrXW99xGQ64pkRATgonx69GSIUcjcDPQXkuJdV1pLhy5xOROSOfAo~yQNLxKBnVjrT6tSQBhUTawECevAaJ3Tpdj2dcUALSZ-vR~oBssu6SSenB95QosrEgmmFYia7b-WUf4-VW5VqmzMbuqkWmuteUPAgU~gvvgEzru09wKseI-s2ow1NXuC9DZSAxmXbaw2SQmpdEvDTMctG9jo8i0SH6fMDbZNcHEriIaCh3tzmLPNQVU14lFaa~rdg92BDbwf4NrGH3mTvDNUDQUYIIioOcHEce2uA__" alt="" />
                             </div>
                         </div>
                         <div className='BestProduct'>
@@ -69,8 +69,8 @@ export default class HomePage extends Component {
 
                                         </div>
                                         <div className='BestNav2 flex gap-2.5'>
-                                            <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'> Sola ok</button></li>
-                                            <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'>Sağa ok</button></li>
+                                            <li className='text-[#737373] '><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'> <i class="fa-solid fa-angle-left "></i></button></li>
+                                            <li className='text-[#737373] '><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'><i class="fa-solid fa-angle-right "></i></button></li>
                                         </div>
                                     </div>
                                 </div>
@@ -193,7 +193,7 @@ export default class HomePage extends Component {
                 </div>
                 <div className='Product4 flex flex-col gap-8 '>
                     <div className='ProductRow1 flex justify-center'>
-                        <div className='RowImg  '><img className=' h-[649px]  w-[674px]' src="https://s3-alpha-sig.figma.com/img/4f83/d305/c7cf97d501907ed12bf338b0a82cc287?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XLlUmVAYWhW8Bz6Gm62ohl2XtPHr-Erio-GrvJLTurjqLbiY61qBdsHP~4G5Vc9sYIO6E2KR4s9x9TC5qn8Uv36WbGmIlmo7025wAHiQBxrsljqWsmfUTs~ZtPX4cpFdoqPZ97lvkYW5cSD9G1f8QO7dypWtncSqbmY1R~eWQ6YsU9oQoxIf-GhcUlkjH3BkkUuy7TQ0H793i7IQ-NHIh0geQAiAo35UsS7WVXX5qJY9qXClG4wvDdq2mwaEoz55ERD-SFSOGA0MKJL-YajHOy2ncZ8NKZbcXZseP0V8lC6iCCceOqK-SsqJ4Ds9MyIBxyg97klJMCS0dtWmP3s~6A__" alt="" /></div>
+                        <div className='RowImg  '><img className=' h-[649px]  w-[674px] object-cover' src="https://s3-alpha-sig.figma.com/img/4f83/d305/c7cf97d501907ed12bf338b0a82cc287?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=XLlUmVAYWhW8Bz6Gm62ohl2XtPHr-Erio-GrvJLTurjqLbiY61qBdsHP~4G5Vc9sYIO6E2KR4s9x9TC5qn8Uv36WbGmIlmo7025wAHiQBxrsljqWsmfUTs~ZtPX4cpFdoqPZ97lvkYW5cSD9G1f8QO7dypWtncSqbmY1R~eWQ6YsU9oQoxIf-GhcUlkjH3BkkUuy7TQ0H793i7IQ-NHIh0geQAiAo35UsS7WVXX5qJY9qXClG4wvDdq2mwaEoz55ERD-SFSOGA0MKJL-YajHOy2ncZ8NKZbcXZseP0V8lC6iCCceOqK-SsqJ4Ds9MyIBxyg97klJMCS0dtWmP3s~6A__" alt="" /></div>
                         <div className='RowText flex gap-9 justify-center w-[400px] bg-[#FAFAFA]'>
                             <div className='RowText2 flex flex-col justify-center items-center gap-5'>
                                 <div className='flex flex-col items-center w-[280px] justify-center '>
@@ -203,7 +203,7 @@ export default class HomePage extends Component {
                                         keystroke away.</p>
                                 </div>
 
-                                <div className='RowImg2 w-[348px] h-226px] top-9'><img src="https://s3-alpha-sig.figma.com/img/e43d/8ea6/b4108cbd028fc3719beccb40231bf020?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n2nupk~lspg7IvXshE8DbvLgVZmtDX59b5vgOvuHtTAjJwPWVMp87zRd9Z4cx0a4-RgkHJE3NiiX78QBMG1gYwbTH05dDBQ00d9vVoUPP4MlR6Xej59iYmbrlxxUCoT2Z567ks1U87PYofqnDAuq0X4sUo4rWg8QDKZX2PpYHk5oNR8T69865A6vzH9yTUjg5AMbyzCStHBG7CpqAgCMFDBcE1lWDy4TWBk8uhkjyZPjeiU0ktJ2Dl1YBOxoUARYj5FFpGPacD1ieB5dsFcwnVa6tX3hgr8dX-1idN0xF4GTMXsBnD4aViqXuSaEiPD7V5OKwpQpc8lq8h3doC4bXA__" alt="" /></div>
+                                <div className='RowImg2 w-[348px] h-226px] top-9'><img className='' src="https://s3-alpha-sig.figma.com/img/e43d/8ea6/b4108cbd028fc3719beccb40231bf020?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=n2nupk~lspg7IvXshE8DbvLgVZmtDX59b5vgOvuHtTAjJwPWVMp87zRd9Z4cx0a4-RgkHJE3NiiX78QBMG1gYwbTH05dDBQ00d9vVoUPP4MlR6Xej59iYmbrlxxUCoT2Z567ks1U87PYofqnDAuq0X4sUo4rWg8QDKZX2PpYHk5oNR8T69865A6vzH9yTUjg5AMbyzCStHBG7CpqAgCMFDBcE1lWDy4TWBk8uhkjyZPjeiU0ktJ2Dl1YBOxoUARYj5FFpGPacD1ieB5dsFcwnVa6tX3hgr8dX-1idN0xF4GTMXsBnD4aViqXuSaEiPD7V5OKwpQpc8lq8h3doC4bXA__" alt="" /></div>
                                 <p className='font-bold text-sm text-[#737373]'>English Department</p>
                                 {/* p tagi link olarak ürün kategorisi sayfasına gidecek  */}
                                 <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
@@ -277,8 +277,8 @@ export default class HomePage extends Component {
 
                                         </div>
                                         <div className='BestNav2 flex gap-2.5'>
-                                            <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'> Sola ok</button></li>
-                                            <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'>Sağa ok</button></li>
+                                            <li className='text-[#737373] font-bold'><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'> <i class="fa-solid fa-angle-left"></i></button></li>
+                                            <li className='text-[#737373] font-bold'><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'><i class="fa-solid fa-angle-right"></i></button></li>
                                         </div>
                                     </div>
                                 </div>
@@ -401,7 +401,7 @@ export default class HomePage extends Component {
                 </div>
                 <div className='Product40 flex flex-col gap-8 pt-12 pb-12'>
                     <div className='ProductRow12 flex justify-center flex-row-reverse'>
-                        <div className='RowImg1  '><img className=' h-[649px]  w-[674px]' src="https://s3-alpha-sig.figma.com/img/7b48/0f4e/eb94313e5df675c7986d5dc3ce4b1d30?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EzKZu~mlsYmWQ2NFOPbyeYFaCyfEWaxJJyZ7EwHVMPw2Vhh67gJfoVjKY5PJVK7ig~Ugp4Af3AKnhkucy00iJTexTH7EvB5eYjHouifd4PHOUPBcl68LiGnqydWwqsl-AskgsT2wUXb49~frQQ-3~KGVftq~7lPTgjQ2pIjig-~uHvel0eCMR8ap21Mlmg4XqhFhZypYq49VXlOFwzLNzO1IgWLfJZ~-yCdlXSmg0BFnGUkg32-SJBgPiSn998V2lSc6a8ahyTlSuLibGN5GPkzPTWkRp25wUum-xfCYcbHYVhxXAeLWV4drV476Mu8sl4E7DEzzZpIbMEDh0VdhIw__" alt="" /></div>
+                        <div className='RowImg1  '><img className=' h-[649px]  w-[674px] object-cover' src="https://s3-alpha-sig.figma.com/img/7b48/0f4e/eb94313e5df675c7986d5dc3ce4b1d30?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EzKZu~mlsYmWQ2NFOPbyeYFaCyfEWaxJJyZ7EwHVMPw2Vhh67gJfoVjKY5PJVK7ig~Ugp4Af3AKnhkucy00iJTexTH7EvB5eYjHouifd4PHOUPBcl68LiGnqydWwqsl-AskgsT2wUXb49~frQQ-3~KGVftq~7lPTgjQ2pIjig-~uHvel0eCMR8ap21Mlmg4XqhFhZypYq49VXlOFwzLNzO1IgWLfJZ~-yCdlXSmg0BFnGUkg32-SJBgPiSn998V2lSc6a8ahyTlSuLibGN5GPkzPTWkRp25wUum-xfCYcbHYVhxXAeLWV4drV476Mu8sl4E7DEzzZpIbMEDh0VdhIw__" alt="" /></div>
                         <div className='RowText1 flex gap-9 justify-center w-[400px] bg-[#FAFAFA]'>
                             <div className='RowText2 flex flex-col justify-center items-center gap-5'>
                                 <div className='flex flex-col items-center w-[280px] justify-center '>
