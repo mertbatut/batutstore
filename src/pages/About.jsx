@@ -15,7 +15,7 @@ export default function About() {
                         <h5 className='font-bold text-base text-[#252B42]'>ABOUT COMPANY</h5>
                         <h1 className='text-6xl leading-[3rem] font-bold text-[#252B42]'>ABOUT US</h1>
                         <h4 className='font-normal text-[#737373] text-xl'>We know how large objects will act,but things on a small scale</h4>
-                       <a href="TeamPage"> <button className='BecomeButton bg-[#23A6F0] py-4 px-10 w-[193px] h-[52px] rounded-md text-[#FFFFFF] text-sm font-bold'>Get Quote Now </button></a>
+                       <a href="#"> <button className='BecomeButton bg-[#23A6F0] py-4 px-10 w-[193px] h-[52px] rounded-md text-[#FFFFFF] text-sm font-bold'>Get Quote Now </button></a>
                     </div>
                     <div className='AboutBackground w-[571px] '>
                         <img className='' src="https://s3-alpha-sig.figma.com/img/7466/f015/45eb1f33b39fa1e1f6b0ddf5bb703345?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iJJu9WWsMF3FGy9ya~2uv4FU~PtI-Zs4f5deCuLqPcfJB-0kBVa0vcvJrBicnvjucccJAdNajtu~U1JS9uSPnYvmUd6lcrQtAk1jNm85AuQiT8f6wh88vCvir4Hvs-yMUgtqWPW3D2EhL87y8bQ4Mg~HGWKGB8cjEK6e8r-Zit9XrLaKlVqRYsGhrMI3sEvbKuvO6fS8mrQiEpRj1SWm8xe-tkj60sf2JudjtmcxbtMHScND7c4dhtcVNFb5kLtDAXicnERP~vFGtFU3jOZQH8V9~I4Ia9s6jhPEWYBFPwdbTno~RkkQIysh8YT0atSinJUAHUTrQ74mzMNzx2mTAg__" alt="" />

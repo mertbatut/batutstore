@@ -30,7 +30,7 @@ export default class Footer extends Component {
                                     <div className='FooterInfo font-bold text-sm leading-6 flex flex-col gap-3'>
                                     <a href="About"><li>About Us</li></a>
                                         <li>Carrier</li>
-                                        <li>We are hiring</li>
+                                        <a href="TeamPage" ><li>Team</li></a>
                                         <li>Blog</li>
                                         
                                     </div>
