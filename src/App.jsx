@@ -47,6 +47,9 @@ function App() {
           <Route path='/TeamPage'>
           <TeamPage/> 
           </Route>
+          <Route path='/Pricing'>
+          <Price/> 
+          </Route>
         
       </Switch>  
       
