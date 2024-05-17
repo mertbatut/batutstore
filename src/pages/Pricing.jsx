@@ -45,34 +45,119 @@ export default class Price extends Component {
                 </div>
               </div>
             </div>
-            <div className='PriceRow2'>
-              <div className='PriceCard1'>
-                <div className="PriceCardStyle1">
-                  <h3></h3>
-                  <h5></h5>
-                  <div>
-                    <h2></h2>
+            <div className='PriceRow2 flex justify-center py-24'>
+              <div className='PriceCard1 W-[327px] h-[664px] flex'>
+                <div className="PriceCardStyle1 bg-[#FFFFFF] py-12 px-11 border-2 border-[#23A6F0] rounded-xl flex flex-col gap-[30px]">
+                  <h3 className='text-[#252B42] font-bold text-2xl flex justify-center'>FREE</h3>
+                  <h5 className='text-base font-bold text-[#737373]'>Organize across all apps by hand</h5>
+                  <div className='flex justify-evenly'>
+                    <h2 className='text-[40px] font-bold text-[#23A6F0]'>0</h2>
                     <div>
-                      <h3></h3>
-                      <h5></h5>
+                      <h3 className='text-[#23A6F0] font-bold text-2xl'>$</h3>
+                      <h5 className='text-sm text-[#8EC2F2] font-bold'>Per Month</h5>
                     </div>
                   </div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
-                  <div></div>
+                  <div className='flex items-center gap-4'>
+                    <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>1GB  Cloud storage</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Email and community support</h6>
+                  </div>
                   
-                  
+                  <button className='py-3.5 rounded-md px-10 flex gap-3 bg-[#252B42]'><p className='text-sm font-bold text-[#FFFFFF]'>Try for free</p></button>
 
-                  
-                  
-                  <div className='PriceCard2'></div>
-                  <div className='PriceCard3'></div>
                 </div>
               </div>
-              <div className='PriceCard2'></div>
-              <div className='PriceCard3'></div>
+              <div className='PriceCard2'>
+              <div className='PriceCard2 W-[327px] h-[704px] flex'>
+                <div className="PriceCardStyle1 bg-[#252B42] py-12 px-11 border-2 border-[#23A6F0] rounded-xl flex flex-col gap-[30px]">
+                  <h3 className='text-[#FFFFFF] font-bold text-2xl flex justify-center'>STANDART</h3>
+                  <h5 className='text-base font-bold text-[#FFFFFF]'>Organize across all apps by hand</h5>
+                  <div className='flex justify-evenly'>
+                    <h2 className='text-[40px] font-bold text-[#23A6F0]'>9.99</h2>
+                    <div>
+                      <h3 className='text-[#23A6F0] font-bold text-2xl'>$</h3>
+                      <h5 className='text-sm text-[#8EC2F2] font-bold'>Per Month</h5>
+                    </div>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                    <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#FFFFFF]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#FFFFFF]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#FFFFFF]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#FFFFFF]'>1GB  Cloud storage</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#FFFFFF]'>Email and community support</h6>
+                  </div>
+                  
+                  <button className='py-3.5 rounded-md px-10 flex gap-3 bg-[#23A6F0]'><p className='text-sm font-bold text-[#FFFFFF]'>Try for free</p></button>
+                  
+                </div>
+              </div>
+              </div>
+              <div className='PriceCard3'>
+              <div className='PriceCard3 W-[327px] h-[664px] flex'>
+                <div className="PriceCardStyle1 bg-[#FFFFFF] py-12 px-11 border-2 border-[#23A6F0] rounded-xl flex flex-col gap-[30px]">
+                  <h3 className='text-[#252B42] font-bold text-2xl flex justify-center'>PREMIUM</h3>
+                  <h5 className='text-base font-bold text-[#737373]'>Organize across all apps by hand</h5>
+                  <div className='flex justify-evenly'>
+                    <h2 className='text-[40px] font-bold text-[#23A6F0]'>19.99</h2>
+                    <div>
+                      <h3 className='text-[#23A6F0] font-bold text-2xl'>$</h3>
+                      <h5 className='text-sm text-[#8EC2F2] font-bold'>Per Month</h5>
+                    </div>
+                  </div>
+                  <div className='flex items-center'>
+                    <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#2DC071]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Unlimited product updates</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>1GB  Cloud storage</h6>
+                  </div>
+                  <div className='flex items-center gap-4'>
+                  <button className='rounded-[200px] w-[32px] h-[32px] bg-[#BDBDBD]'><i class="fa-solid fa-check text-white"></i></button>
+                    <h6 className='font-bold text-sm text-[#252B42]'>Email and community support</h6>
+                  </div>
+                  
+                  <button className='py-3.5 rounded-md px-10 flex gap-3 bg-[#252B42]'><p className='text-sm font-bold text-[#FFFFFF]'>Try for free</p></button>
+                  
+                </div>
+              </div>
+              </div>
             </div>
           </div>
         </div>
