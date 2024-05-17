@@ -57,18 +57,18 @@ export default class HomePage extends Component {
                         </div>
                         <div className='BestProduct'>
                             <div className='BestMain '>
-                                <div className='BestRow1 flex gap-2.5 items-center '>
+                                <div className='BestRow1 flex gap-6 items-center '>
                                     <div className='BestContent font-bold text-base leading-6 text-[#252B42]'>
                                         <h3 className='flex gap-2.5 '>BESTSELLER PRODUCTS</h3>
                                     </div>
-                                    <div className='BestNav flex list-none gap-2.5 items-center '>
-                                        <div className='BestNav1 flex gap-2.5 '>
+                                    <div className='BestNav flex list-none gap-6 items-center '>
+                                        <div className='BestNav1 flex gap-6 '>
                                             <li className='text-[#23A6F0] font-bold text-sm'><button className='px-2.5 py-5' > Men</button></li>
                                             <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'> Women</button></li>
                                             <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'>Accessories</button></li>
 
                                         </div>
-                                        <div className='BestNav2 flex gap-2.5'>
+                                        <div className='BestNav2 flex gap-6'>
                                             <li className='text-[#737373] '><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'> <i class="fa-solid fa-angle-left "></i></button></li>
                                             <li className='text-[#737373] '><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'><i class="fa-solid fa-angle-right "></i></button></li>
                                         </div>
@@ -265,18 +265,18 @@ export default class HomePage extends Component {
                         </div>
                         <div className='BestProduct'>
                             <div className='BestMain '>
-                                <div className='BestRow1 flex gap-2.5 items-center '>
+                                <div className='BestRow1 flex gap-6 items-center '>
                                     <div className='BestContent font-bold text-base leading-6 text-[#252B42]'>
                                         <h3 className='flex gap-2.5 '>BESTSELLER PRODUCTS</h3>
                                     </div>
-                                    <div className='BestNav flex list-none gap-2.5 items-center '>
+                                    <div className='BestNav flex list-none gap-6 items-center '>
                                         <div className='BestNav1 flex gap-2.5 '>
                                             <li className='text-[#23A6F0] font-bold text-sm'><button className='px-2.5 py-5' > Men</button></li>
                                             <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'> Women</button></li>
                                             <li className='text-[#737373] font-bold text-sm'><button className='px-2.5 py-5'>Accessories</button></li>
 
                                         </div>
-                                        <div className='BestNav2 flex gap-2.5'>
+                                        <div className='BestNav2 flex gap-6'>
                                             <li className='text-[#737373] font-bold'><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'> <i class="fa-solid fa-angle-left"></i></button></li>
                                             <li className='text-[#737373] font-bold'><button className='px-5 py-3 rounded-[33px] w-[49px] h-[49px] border-1 border-[#737373]'><i class="fa-solid fa-angle-right"></i></button></li>
                                         </div>
