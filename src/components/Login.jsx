@@ -4,14 +4,12 @@ import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 
-
 const LoginPage = () => {
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -20,58 +18,28 @@ const LoginPage = () => {
         }
     }, []);
 
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
+        const storedEmail = localStorage.getItem('email');
+        const storedPassword = localStorage.getItem('password');
 
-        try {
-            // Kullanıcıları kontrol et
-            const response = await axios.get('https://6645c915b8925626f8932c56.mockapi.io/Author');
-
-
-            const users = response.data;
-            const user = users.find(user => user.email === email && user.password === password);
-
-
-            if (!user) {
-                setError('E-posta adresi bulunamadı veya şifre hatalı.');
-                return;
-            }
-
-
-            const token = generateToken();
-            localStorage.setItem('token', token);
-            console.log('Token oluşturuldu ve localStorage\'a kaydedildi:', token);
-
-
+        if (email === storedEmail && password === storedPassword) {
+            // Successful authentication
             setIsAuthenticated(true);
-            history.push('/dashboard');
-        } catch (error) {
-            if (error.response) {
-                setError(error.response.data.message || 'Geçersiz e-posta veya şifre.');
-            } else if (error.request) {
-                setError('Sunucudan yanıt alınamadı.');
-            } else {
-                setError('Bir hata oluştu: ' + error.message);
-            }
-            console.error('Giriş hatası:', error);
+            history.push('/about'); // Redirect to About page
+        } else {
+            // Authentication failed
+            setError('Kullanıcı bulunamadı veya şifre hatalı.');
         }
     };
-
 
     const handleLogout = () => {
         localStorage.removeItem('token');
         setIsAuthenticated(false);
         history.push('/login');
     };
-
-
-    const generateToken = () => {
-        return Math.random().toString(36).substr(2);
-    };
-
 
     return (
         <div>
@@ -111,7 +79,4 @@ const LoginPage = () => {
     );
 };
 
-
 export default LoginPage;
-
-
