@@ -1,60 +1,34 @@
 import React, { useState } from 'react';
-import './App.css'
-import HomePage from './pages/HomePage'
-import { Route, Switch } from 'react-router-dom/cjs/react-router-dom.min'
-import BlogPage from './pages/BlogPage'
-import ProductList from './pages/ProductList'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import './App.css';
+import HomePage from './pages/HomePage';
+import BlogPage from './pages/BlogPage';
+import ProductList from './pages/ProductList';
 import Contact from './pages/Contact';
 import About from './pages/About';
 import Subscription from './layout/Subscription';
-import LoginPage from './components/Login';
+import Login from './components/Login';
 import Price from './pages/Pricing';
 import TeamPage from './pages/TeamPage';
 
-
-
-
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
-    
-    <>
-
-       <Route exact path='/'>
-        <HomePage />
-      </Route>
+    <Router>
       <Switch>
-        <Route path='/Blog'><BlogPage/></Route>
-        <Route path='/ProductPage'>
-          <ProductList/>
-          </Route>
-          <Route path='/Contact'>
-          <Contact/>
-          </Route>
-          <Route path='/About'>
-          <About/>
-          </Route>
-          <Route path='/Action'>
-          <Subscription/>
-          </Route>
-          <Route path='/Login'>
-          <LoginPage/> 
-          </Route>
-          <Route path='/Pricing'>
-          <Price/> 
-          </Route>
-          <Route path='/TeamPage'>
-          <TeamPage/> 
-          </Route>
-          <Route path='/Pricing'>
-          <Price/> 
-          </Route>
-        
-      </Switch>  
-      
-    </>
-  )
+        <Route exact path="/" component={HomePage} />
+        <Route path="/Blog" component={BlogPage} />
+        <Route path="/ProductPage" component={ProductList} />
+        <Route path="/Contact" component={Contact} />
+        <Route path="/About" component={About} />
+        <Route path="/Action" component={Subscription} />
+        <Route path="/Login" component={Login} />
+        <Route path="/Pricing" component={Price} />
+        <Route path="/TeamPage" component={TeamPage} />
+      </Switch>
+    </Router>
+  );
 }
 
-export default App
+export default App;
