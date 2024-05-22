@@ -24,7 +24,7 @@ export const PasswordStrength = ({ placeholder, onChange }) => {
     const password = event.target.value;
     const strength = getStrength(password);
     setStrength(strength);
-    onChange(password);
+    onChange(password, strength);
   };
 
   return (
@@ -44,3 +44,50 @@ export const PasswordStrength = ({ placeholder, onChange }) => {
     </>
   );
 };
+
+const SignupForm = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [strength, setStrength] = useState('');
+
+  const handlePasswordChange = (password, strength) => {
+    setPassword(password);
+    setStrength(strength);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (strength === 'strong' || strength === 'very strong') {
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+      alert('Üyeliğiniz Başarı İle Gerçekleşti');
+    } else {
+      alert('Şifre Belirlerken "en az 1 büyük karakter, en az bir noktalama işareti ve minimum 6 karakter kullanın');
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label required>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Password:</label>
+        <PasswordStrength
+          placeholder="Enter your password"
+          onChange={handlePasswordChange}
+        />
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  );
+};
+
+export default SignupForm;
