@@ -45,12 +45,7 @@ const LoginPage = () => {
         <div>
             <Header />
             <hr />
-            {isAuthenticated ? (
-                <div className="logout-container">
-                    <h1>Dashboard</h1>
-                    <button onClick={handleLogout}>Logout</button>
-                </div>
-            ) : (
+           
                 <div className='LoginBrand flex justify-between pt-8 pb-10'>
                     <div className='LoginImg pl-20'>
                         <img className='h-[700px] w-[1100px] rounded-lg' src="https://s3-alpha-sig.figma.com/img/b178/ccf1/36301d841438b7cd53ac541b247fb3fa?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=AXY5OZ3SNhv-43G6OPaAV~EiWArHWj5TP2NqCY5zo~jOfN2zxRQX23LxE6UImKS3w3u4o7ZQA5jAgZs3TJ15j6yMrsifmfc66-kLo5yonf7xKFEvk-GtvZo~D0fpYgVfAXjP4qP22kXrj8AphEYl8Rv5LdD7c2fgtekw~ZVfqC-LrN7OMwhUOa3TRitnPN~fgBGKD9Yi6ltr4BD-T7~tka0wlYS1WXPIlBHPyRraHPsMA1N8C0l7-oZ8EJEDcVdJHINNUVtcZScOm6d0wyPPdlJSix55YlEwSQvof6Yl1nOFt5iNES2Z6PFyHLzY7IRXAcVzRdtHr4y12JBzbCfNEw__" alt="Login" />
@@ -73,7 +68,7 @@ const LoginPage = () => {
                         </div>
                     </div>
                 </div>
-            )}
+            
             <Footer />
         </div>
     );
