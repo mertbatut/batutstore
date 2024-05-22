@@ -62,6 +62,8 @@ const LoginPage = () => {
                                     <label htmlFor="password" className='text-[#FFFFFF]'>Şifrenizi Giriniz</label>
                                     <input id="password" className='w-[400px] rounded-lg border-2 h-[40px]' type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Şifrenizi Giriniz' required />
                                     <button className='w-[130px] h-[40px] bg-[#23A6F0] text-[#FFFFFF]' type='submit'>Login</button>
+                                    <h1>Üye değil misin ?</h1>
+                                    <button className='w-[130px] h-[40px] bg-[#23A6F0] text-[#FFFFFF]' type='submit'>Hesap Oluştur</button>
                                 </div>
                             </form>
                             {error && <p className='text-red-500 mt-4'>{error}</p>}
