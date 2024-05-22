@@ -26,11 +26,11 @@ const LoginPage = () => {
         const storedPassword = localStorage.getItem('password');
 
         if (email === storedEmail && password === storedPassword) {
-            // Successful authentication
+            
             setIsAuthenticated(true);
-            history.push('/about'); // Redirect to About page
+            history.push('/about'); 
         } else {
-            // Authentication failed
+            
             setError('Kullanıcı bulunamadı veya şifre hatalı.');
         }
     };
