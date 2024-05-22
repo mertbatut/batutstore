@@ -10,6 +10,7 @@ import Subscription from './layout/Subscription';
 import Login from './components/Login';
 import Price from './pages/Pricing';
 import TeamPage from './pages/TeamPage';
+import { PasswordStrengthExample } from './components/Register';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Login" component={Login} />
         <Route path="/Pricing" component={Price} />
         <Route path="/TeamPage" component={TeamPage} />
+        <Route path="/Register" component={PasswordStrengthExample} />
       </Switch>
     </Router>
   );
