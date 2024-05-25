@@ -13,6 +13,7 @@ import TeamPage from './pages/TeamPage';
 import { PasswordStrengthExample } from './components/Register';
 
 function App() {
+  
   return (
     <Router>
       <Switch>
