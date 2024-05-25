@@ -5,7 +5,7 @@ import Team from '../components/Team'
 import Brands from '../components/Brands'
 import Header2 from '../components/Header2'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
-import ProductPage from './ProductPage'
+import ProductPage from './ProductDetailPage'
 
 export default function About() {
     let { path, url } = useRouteMatch();
