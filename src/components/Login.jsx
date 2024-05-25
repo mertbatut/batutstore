@@ -28,7 +28,7 @@ const LoginPage = () => {
         if (email === storedEmail && password === storedPassword) {
             
             setIsAuthenticated(true);
-            history.push('/about'); 
+            history.push('/ProductPage'); 
         } else {
             
             setError('Kullanıcı bulunamadı veya şifre hatalı.');

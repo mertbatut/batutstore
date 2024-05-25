@@ -4,10 +4,19 @@ import Footer from '../components/Footer'
 import Team from '../components/Team'
 import Brands from '../components/Brands'
 import Header2 from '../components/Header2'
+import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
+import ProductPage from './ProductPage'
 
 export default function About() {
+    let { path, url } = useRouteMatch();
     return (
         <div>
+             <nav>
+        
+      </nav>
+      <Switch>
+        <Route path={`${path}/ProductPage`} component={ProductPage} />
+      </Switch>
            <Header2/>
             <div className='Deben1 flex justify-center'>
                 <div className='AboutText flex py-28 gap-20  w-[1050px]'>

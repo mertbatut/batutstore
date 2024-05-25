@@ -12,7 +12,7 @@ export default class Header2 extends Component {
                       <div className='NavbarNav flex list-none gap-6  items-center'>
                           <li><a className='text-[#737373] font-bold text-sm/[14px]' href="/">Home</a></li>
 
-                          <li><a className='text-[#737373] font-bold text-sm/[14px]' href="About">Product</a></li>
+                          <li><a className='text-[#737373] font-bold text-sm/[14px]' href="ProductPage">Product</a></li>
                           <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Pricing">Pricing</a></li>
                           <li><a className='text-[#737373] font-bold text-sm/[14px]' href="Contact">Contact</a></li>
 

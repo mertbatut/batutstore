@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import HomePage from './pages/HomePage';
@@ -13,8 +13,6 @@ import TeamPage from './pages/TeamPage';
 import { PasswordStrengthExample } from './components/Register';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <Router>
       <Switch>
