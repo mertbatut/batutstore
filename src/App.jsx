@@ -11,6 +11,7 @@ import Login from './components/Login';
 import Price from './pages/Pricing';
 import TeamPage from './pages/TeamPage';
 import { PasswordStrengthExample } from './components/Register';
+import ProductPage from './pages/ProductDetailPage';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
         <Route path="/Pricing" component={Price} />
         <Route path="/TeamPage" component={TeamPage} />
         <Route path="/Register" component={PasswordStrengthExample} />
+        <Route path="/ProductPage" component={ProductPage}/>
 
       </Switch>
     </Router>
