@@ -38,7 +38,7 @@ const LoginPage = () => {
             );
 
             setTimeout(() => {
-                history.push('/ProductPage');
+                history.push('/About');
             }, 1500); // 1.5 saniye sonra yönlendirme
         } else {
             setError('Kullanıcı bulunamadı veya şifre hatalı.');
