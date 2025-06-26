@@ -1,15 +1,48 @@
 import { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Drop from './dropdown';
 import SearchEvent from '../contexts/SearchEvent';
+import { authService } from '../api/authService';
+import { toast } from 'react-toastify';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false);
+  const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   const [cartCount] = useState(3);
   const [wishlistCount] = useState(2);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  
   const dropdownRef = useRef(null);
+  const userDropdownRef = useRef(null);
+  const history = useHistory();
+
+  // Authentication durumunu kontrol et
+  useEffect(() => {
+    const checkAuthStatus = () => {
+      const authenticated = authService.isAuthenticated();
+      const user = authService.getCurrentUser();
+      
+      setIsAuthenticated(authenticated);
+      setCurrentUser(user);
+    };
+
+    // İlk yüklemede kontrol et
+    checkAuthStatus();
+
+    // Storage değişikliklerini dinle (başka sekmede login/logout olunca)
+    const handleStorageChange = () => {
+      checkAuthStatus();
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,6 +52,9 @@ export default function Header() {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsShopDropdownOpen(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
+        setIsUserDropdownOpen(false);
       }
     };
 
@@ -30,6 +66,37 @@ export default function Header() {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
+
+  // Logout işlemi
+  const handleLogout = async () => {
+    try {
+      await authService.logout();
+      setIsAuthenticated(false);
+      setCurrentUser(null);
+      setIsUserDropdownOpen(false);
+      
+      toast.success('Başarıyla çıkış yaptınız!', {
+        position: "top-right",
+        autoClose: 2000,
+      });
+      
+      history.push('/');
+    } catch (error) {
+      console.error('Logout error:', error);
+      toast.error('Çıkış işlemi sırasında bir hata oluştu.');
+    }
+  };
+
+  // Kullanıcı adının kısaltılmış hali
+  const getDisplayName = () => {
+    if (!currentUser) return '';
+    return `${currentUser.firstName} ${currentUser.lastName}`;
+  };
+
+  const getInitials = () => {
+    if (!currentUser) return '';
+    return `${currentUser.firstName[0]}${currentUser.lastName[0]}`.toUpperCase();
+  };
 
   return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
@@ -97,16 +164,84 @@ export default function Header() {
               <SearchEvent />
             </div>
 
-            {/* Auth Links - Desktop */}
+            {/* Auth Section - Desktop */}
             <div className="hidden lg:flex items-center space-x-3">
-              <Link to="/login" className="flex items-center space-x-2 px-3 py-2 text-slate-700 hover:text-slate-800 border border-slate-300 rounded-lg hover:bg-slate-50 transition-all duration-200">
-                <i className="fa-regular fa-user text-sm"></i>
-                <span className="font-medium text-sm">Giriş</span>
-              </Link>
-              <Link to="/register" className="flex items-center space-x-2 px-3 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors duration-200">
-                <i className="fa-solid fa-user-plus text-sm"></i>
-                <span className="font-medium text-sm">Kayıt</span>
-              </Link>
+              {isAuthenticated ? (
+                // Giriş yapılmış kullanıcı
+                <div className="relative" ref={userDropdownRef}>
+                  <button
+                    onClick={() => setIsUserDropdownOpen(!isUserDropdownOpen)}
+                    className="flex items-center space-x-2 px-3 py-2 text-slate-700 hover:text-slate-800 border border-slate-300 rounded-lg hover:bg-slate-50 transition-all duration-200"
+                  >
+                    <div className="w-7 h-7 bg-slate-800 text-white rounded-full flex items-center justify-center text-xs font-medium">
+                      {getInitials()}
+                    </div>
+                    <span className="font-medium text-sm max-w-24 truncate">
+                      {currentUser?.firstName}
+                    </span>
+                    <i className={`fa-solid fa-chevron-down text-xs transition-transform ${isUserDropdownOpen ? 'rotate-180' : ''}`}></i>
+                  </button>
+
+                  {/* User Dropdown Menu */}
+                  {isUserDropdownOpen && (
+                    <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                      <div className="px-4 py-2 border-b border-gray-100">
+                        <p className="text-sm font-medium text-gray-900">{getDisplayName()}</p>
+                        <p className="text-xs text-gray-500">{currentUser?.email}</p>
+                      </div>
+                      
+                      <Link
+                        to="/profile"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        <i className="fa-regular fa-user mr-3 text-gray-400"></i>
+                        Profilim
+                      </Link>
+                      
+                      <Link
+                        to="/orders"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        <i className="fa-solid fa-shopping-bag mr-3 text-gray-400"></i>
+                        Siparişlerim
+                      </Link>
+                      
+                      <Link
+                        to="/settings"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
+                        onClick={() => setIsUserDropdownOpen(false)}
+                      >
+                        <i className="fa-solid fa-cog mr-3 text-gray-400"></i>
+                        Ayarlar
+                      </Link>
+                      
+                      <div className="border-t border-gray-100 my-1"></div>
+                      
+                      <button
+                        onClick={handleLogout}
+                        className="flex items-center w-full px-4 py-2 text-sm text-red-600 hover:bg-red-50 transition-colors"
+                      >
+                        <i className="fa-solid fa-sign-out-alt mr-3 text-red-400"></i>
+                        Çıkış Yap
+                      </button>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                // Giriş yapılmamış kullanıcı
+                <>
+                  <Link to="/login" className="flex items-center space-x-2 px-3 py-2 text-slate-700 hover:text-slate-800 border border-slate-300 rounded-lg hover:bg-slate-50 transition-all duration-200">
+                    <i className="fa-regular fa-user text-sm"></i>
+                    <span className="font-medium text-sm">Giriş</span>
+                  </Link>
+                  <Link to="/register" className="flex items-center space-x-2 px-3 py-2 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors duration-200">
+                    <i className="fa-solid fa-user-plus text-sm"></i>
+                    <span className="font-medium text-sm">Kayıt</span>
+                  </Link>
+                </>
+              )}
             </div>
 
             {/* Cart & Wishlist */}
@@ -150,6 +285,23 @@ export default function Header() {
                 <SearchEvent />
               </div>
 
+              {/* Mobile User Info */}
+              {isAuthenticated && (
+                <div className="px-2">
+                  <div className="bg-white rounded-lg p-4 shadow-sm border border-gray-200">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-10 h-10 bg-slate-800 text-white rounded-full flex items-center justify-center text-sm font-medium">
+                        {getInitials()}
+                      </div>
+                      <div>
+                        <p className="font-medium text-gray-900">{getDisplayName()}</p>
+                        <p className="text-sm text-gray-500">{currentUser?.email}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Mobile Navigation */}
               <nav className="flex flex-col space-y-1 px-2">
                 
@@ -183,16 +335,40 @@ export default function Header() {
                 </Link>
               </nav>
 
-              {/* Mobile Auth Links */}
+              {/* Mobile Auth Section */}
               <div className="flex flex-col space-y-3 px-2 pt-4 border-t border-gray-200">
-                <Link to="/login" className="flex items-center justify-center space-x-2 py-3 text-slate-700 border border-slate-300 rounded-lg hover:bg-white transition-all">
-                  <i className="fa-regular fa-user text-sm"></i>
-                  <span className="font-medium text-sm">Giriş Yap</span>
-                </Link>
-                <Link to="/register" className="flex items-center justify-center space-x-2 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors">
-                  <i className="fa-solid fa-user-plus text-sm"></i>
-                  <span className="font-medium text-sm">Kayıt Ol</span>
-                </Link>
+                {isAuthenticated ? (
+                  // Giriş yapılmış kullanıcı - Mobile
+                  <>
+                    <Link to="/profile" className="flex items-center space-x-3 py-3 px-3 text-slate-700 border border-slate-300 rounded-lg hover:bg-white transition-all">
+                      <i className="fa-regular fa-user text-sm"></i>
+                      <span className="font-medium text-sm">Profilim</span>
+                    </Link>
+                    <Link to="/orders" className="flex items-center space-x-3 py-3 px-3 text-slate-700 border border-slate-300 rounded-lg hover:bg-white transition-all">
+                      <i className="fa-solid fa-shopping-bag text-sm"></i>
+                      <span className="font-medium text-sm">Siparişlerim</span>
+                    </Link>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center space-x-3 py-3 px-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                    >
+                      <i className="fa-solid fa-sign-out-alt text-sm"></i>
+                      <span className="font-medium text-sm">Çıkış Yap</span>
+                    </button>
+                  </>
+                ) : (
+                  // Giriş yapılmamış kullanıcı - Mobile
+                  <>
+                    <Link to="/login" className="flex items-center justify-center space-x-2 py-3 text-slate-700 border border-slate-300 rounded-lg hover:bg-white transition-all">
+                      <i className="fa-regular fa-user text-sm"></i>
+                      <span className="font-medium text-sm">Giriş Yap</span>
+                    </Link>
+                    <Link to="/register" className="flex items-center justify-center space-x-2 py-3 bg-slate-800 text-white rounded-lg hover:bg-slate-700 transition-colors">
+                      <i className="fa-solid fa-user-plus text-sm"></i>
+                      <span className="font-medium text-sm">Kayıt Ol</span>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

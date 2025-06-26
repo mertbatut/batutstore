@@ -1,17 +1,27 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { PasswordStrength } from '../contexts/Password';
+import { PasswordStrength, checkPasswordStrength } from '../contexts/Password';
 import Header from '../components/Header';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { HiCheck, HiX, HiEye, HiEyeOff } from 'react-icons/hi';
+import { HiEye, HiEyeOff } from 'react-icons/hi';
+import { authService, cities } from '../api/authService'; // ✅ DÜZELT
 
 export const PasswordStrengthExample = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    tcKimlikNo: '',
+    phoneNumber: '',
+    address: '',
+    gender: '',
+    city: '',
+    birthDate: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+  
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [strength, setStrength] = useState('');
@@ -20,118 +30,190 @@ export const PasswordStrengthExample = () => {
   const [acceptTerms, setAcceptTerms] = useState(false);
   const history = useHistory();
 
-  const handlePasswordChange = (password, strength) => {
-    setPassword(password);
-    setStrength(strength);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
-  const getStrengthColor = (strength) => {
-    switch (strength) {
-      case 'very weak': return 'bg-red-500';
-      case 'weak': return 'bg-orange-500';
-      case 'medium': return 'bg-yellow-500';
-      case 'strong': return 'bg-green-500';
-      case 'very strong': return 'bg-green-600';
-      default: return 'bg-gray-300';
+  const handlePasswordChange = (e) => {
+    const newPassword = e.target.value;
+    setFormData(prev => ({ ...prev, password: newPassword }));
+    const newStrength = checkPasswordStrength(newPassword);
+    setStrength(newStrength);
+  };
+
+  const validateForm = () => {
+    const { firstName, lastName, tcKimlikNo, phoneNumber, address, gender, city, birthDate, email, password, confirmPassword } = formData;
+
+    if (!firstName.trim() || !lastName.trim()) {
+      setErrorMessage('Ad ve soyad alanları zorunludur.');
+      return false;
     }
-  };
 
-  const getStrengthWidth = (strength) => {
-    switch (strength) {
-      case 'very weak': return 'w-1/5';
-      case 'weak': return 'w-2/5';
-      case 'medium': return 'w-3/5';
-      case 'strong': return 'w-4/5';
-      case 'very strong': return 'w-full';
-      default: return 'w-0';
+    if (!tcKimlikNo || tcKimlikNo.length !== 11 || !/^\d{11}$/.test(tcKimlikNo)) {
+      setErrorMessage('TC Kimlik Numarası 11 haneli olmalı ve sadece rakam içermelidir.');
+      return false;
     }
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setErrorMessage('');
-    setIsLoading(true);
+    if (!phoneNumber.trim()) {
+      setErrorMessage('Telefon numarası zorunludur.');
+      return false;
+    }
 
-    if (!firstName || !lastName) {
-      setErrorMessage('Lütfen ad ve soyadınızı giriniz.');
-      toast.error('Ad ve soyad alanları zorunludur!', {
-        position: "top-right",
-        autoClose: 3000,
-      });
-      setIsLoading(false);
-      return;
+    if (!address.trim()) {
+      setErrorMessage('Adres zorunludur.');
+      return false;
+    }
+
+    if (!gender) {
+      setErrorMessage('Cinsiyet seçimi zorunludur.');
+      return false;
+    }
+
+    if (!city) {
+      setErrorMessage('Şehir seçimi zorunludur.');
+      return false;
+    }
+
+    if (!birthDate) {
+      setErrorMessage('Doğum tarihi zorunludur.');
+      return false;
+    }
+
+    // Yaş kontrolü
+    const birthDateObj = new Date(birthDate);
+    const today = new Date();
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const monthDiff = today.getMonth() - birthDateObj.getMonth();
+    
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDateObj.getDate())) {
+      age--;
+    }
+
+    if (age < 18) {
+      setErrorMessage('18 yaşından küçük kullanıcılar kayıt olamaz.');
+      return false;
     }
 
     if (!email.includes('@')) {
-      setErrorMessage('Lütfen geçerli bir e-mail adresi belirleyiniz.');
-      toast.error('Lütfen geçerli bir e-mail adresi giriniz!', {
-        position: "top-right",
-        autoClose: 3000,
-      });
-      setIsLoading(false);
-      return;
+      setErrorMessage('Geçerli bir e-posta adresi giriniz.');
+      return false;
     }
 
     if (!password) {
-      setErrorMessage('Lütfen geçerli bir şifre belirleyiniz.');
-      toast.error('Şifre alanı zorunludur!', {
-        position: "top-right",
-        autoClose: 3000,
-      });
-      setIsLoading(false);
-      return;
+      setErrorMessage('Şifre zorunludur.');
+      return false;
     }
 
     if (password !== confirmPassword) {
       setErrorMessage('Şifreler eşleşmiyor.');
-      toast.error('Şifreler eşleşmiyor!', {
-        position: "top-right",
-        autoClose: 3000,
-      });
-      setIsLoading(false);
-      return;
+      return false;
     }
 
     if (!acceptTerms) {
-      setErrorMessage('Lütfen kullanım koşullarını kabul ediniz.');
-      toast.error('Kullanım koşullarını kabul etmelisiniz!', {
+      setErrorMessage('Kullanım koşullarını kabul etmelisiniz.');
+      return false;
+    }
+
+    if (strength === 'very weak' || strength === 'weak') {
+      setErrorMessage('Lütfen daha güçlü bir şifre belirleyiniz.');
+      return false;
+    }
+
+    return true;
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrorMessage('');
+    setIsLoading(true);
+
+    if (!validateForm()) {
+      setIsLoading(false);
+      toast.error(errorMessage, {
         position: "top-right",
         autoClose: 3000,
       });
-      setIsLoading(false);
       return;
     }
 
-    if (strength === 'strong' || strength === 'very strong') {
-      setTimeout(() => {
-        localStorage.setItem('email', email);
-        localStorage.setItem('password', password);
-        localStorage.setItem('firstName', firstName);
-        localStorage.setItem('lastName', lastName);
-        
+    try {
+      // API'ye gönderilecek veri formatı
+      const registerData = {
+        firstName: formData.firstName.trim(),
+        lastName: formData.lastName.trim(),
+        tcKimlikNo: formData.tcKimlikNo,
+        phoneNumber: formData.phoneNumber.trim(),
+        address: formData.address.trim(),
+        gender: formData.gender,
+        city: formData.city,
+        birthDate: formData.birthDate,
+        email: formData.email.toLowerCase().trim(),
+        password: formData.password,
+        confirmPassword: formData.confirmPassword
+      };
+
+      console.log('Sending register data:', registerData); // Debug log
+
+      const response = await authService.register(registerData);
+      
+      console.log('Register response:', response); // Debug log
+
+      if (response.success) {
         toast.success('Hesabınız başarıyla oluşturuldu! Giriş sayfasına yönlendiriliyorsunuz...', {
           position: "top-right",
           autoClose: 2000,
         });
 
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-        setFirstName('');
-        setLastName('');
+        // Form'u temizle
+        setFormData({
+          firstName: '',
+          lastName: '',
+          tcKimlikNo: '',
+          phoneNumber: '',
+          address: '',
+          gender: '',
+          city: '',
+          birthDate: '',
+          email: '',
+          password: '',
+          confirmPassword: ''
+        });
         setStrength('');
-        setIsLoading(false);
+        setAcceptTerms(false);
 
         setTimeout(() => {
           history.push('/Login');
         }, 2000);
-      }, 1000);
-    } else {
-      setErrorMessage('Lütfen daha güçlü bir şifre belirleyiniz.');
-      toast.error('Şifreniz yeterince güçlü değil!', {
+      } else {
+        // Backend'den gelen hata mesajı
+        setErrorMessage(response.message || 'Kayıt işlemi başarısız oldu.');
+        toast.error(response.message || 'Kayıt işlemi başarısız oldu!', {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        
+        // Eğer detaylı hatalar varsa onları da göster
+        if (response.errors && response.errors.length > 0) {
+          response.errors.forEach(err => {
+            toast.error(err, {
+              position: "top-right",
+              autoClose: 3000,
+            });
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Registration error:', error);
+      setErrorMessage('Beklenmeyen bir hata oluştu.');
+      toast.error('Beklenmeyen bir hata oluştu!', {
         position: "top-right",
         autoClose: 3000,
       });
+    } finally {
       setIsLoading(false);
     }
   };
@@ -158,13 +240,14 @@ export const PasswordStrengthExample = () => {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-2">
-                        Ad
+                        Ad *
                       </label>
                       <input
                         id="firstName"
+                        name="firstName"
                         type="text"
-                        value={firstName}
-                        onChange={(e) => setFirstName(e.target.value)}
+                        value={formData.firstName}
+                        onChange={handleInputChange}
                         placeholder="Adınız"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
@@ -172,13 +255,14 @@ export const PasswordStrengthExample = () => {
                     </div>
                     <div>
                       <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-2">
-                        Soyad
+                        Soyad *
                       </label>
                       <input
                         id="lastName"
+                        name="lastName"
                         type="text"
-                        value={lastName}
-                        onChange={(e) => setLastName(e.target.value)}
+                        value={formData.lastName}
+                        onChange={handleInputChange}
                         placeholder="Soyadınız"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
@@ -186,17 +270,125 @@ export const PasswordStrengthExample = () => {
                     </div>
                   </div>
 
+                  {/* TC Kimlik No */}
+                  <div>
+                    <label htmlFor="tcKimlikNo" className="block text-sm font-medium text-gray-700 mb-2">
+                      TC Kimlik Numarası *
+                    </label>
+                    <input
+                      id="tcKimlikNo"
+                      name="tcKimlikNo"
+                      type="text"
+                      value={formData.tcKimlikNo}
+                      onChange={handleInputChange}
+                      placeholder="12345678901"
+                      maxLength="11"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    />
+                  </div>
+
+                  {/* Phone Number */}
+                  <div>
+                    <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
+                      Telefon Numarası *
+                    </label>
+                    <input
+                      id="phoneNumber"
+                      name="phoneNumber"
+                      type="tel"
+                      value={formData.phoneNumber}
+                      onChange={handleInputChange}
+                      placeholder="+90 555 123 45 67"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    />
+                  </div>
+
+                  {/* Address */}
+                  <div>
+                    <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                      Adres *
+                    </label>
+                    <textarea
+                      id="address"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleInputChange}
+                      placeholder="Tam adresinizi giriniz"
+                      rows="3"
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    />
+                  </div>
+
+                  {/* Gender and City */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="gender" className="block text-sm font-medium text-gray-700 mb-2">
+                        Cinsiyet *
+                      </label>
+                      <select
+                        id="gender"
+                        name="gender"
+                        value={formData.gender}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      >
+                        <option value="">Seçiniz</option>
+                        <option value="Erkek">Erkek</option>
+                        <option value="Kadın">Kadın</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label htmlFor="city" className="block text-sm font-medium text-gray-700 mb-2">
+                        Şehir *
+                      </label>
+                      <select
+                        id="city"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleInputChange}
+                        required
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                      >
+                        <option value="">Şehir Seçiniz</option>
+                        {cities.map(city => (
+                          <option key={city} value={city}>{city}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Birth Date */}
+                  <div>
+                    <label htmlFor="birthDate" className="block text-sm font-medium text-gray-700 mb-2">
+                      Doğum Tarihi *
+                    </label>
+                    <input
+                      id="birthDate"
+                      name="birthDate"
+                      type="date"
+                      value={formData.birthDate}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    />
+                  </div>
+
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      E-posta Adresi
+                      E-posta Adresi *
                     </label>
                     <div className="relative">
                       <input
                         id="email"
+                        name="email"
                         type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        value={formData.email}
+                        onChange={handleInputChange}
                         placeholder="ornek@email.com"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pl-12"
@@ -210,14 +402,15 @@ export const PasswordStrengthExample = () => {
                   {/* Password */}
                   <div>
                     <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                      Şifre
+                      Şifre *
                     </label>
                     <div className="relative">
                       <input
                         id="password"
+                        name="password"
                         type={showPassword ? "text" : "password"}
-                        value={password}
-                        onChange={(e) => handlePasswordChange(e.target.value, strength)}
+                        value={formData.password}
+                        onChange={handlePasswordChange}
                         placeholder="Güçlü bir şifre oluşturun"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pl-12 pr-12"
@@ -235,32 +428,24 @@ export const PasswordStrengthExample = () => {
                     </div>
                     
                     {/* Password Strength Indicator */}
-                    {password && (
-                      <div className="mt-2">
-                        <div className="flex items-center justify-between mb-1">
-                          <span className="text-xs text-gray-600">Şifre Gücü</span>
-                          <span className={`text-xs font-medium ${strength === 'very strong' || strength === 'strong' ? 'text-green-600' : 'text-orange-600'}`}>
-                            {strength}
-                          </span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className={`h-2 rounded-full transition-all duration-300 ${getStrengthWidth(strength)} ${getStrengthColor(strength)}`}></div>
-                        </div>
-                      </div>
-                    )}
+                    <PasswordStrength 
+                      password={formData.password} 
+                      showCriteria={false}
+                    />
                   </div>
 
                   {/* Confirm Password */}
                   <div>
                     <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-                      Şifre Tekrar
+                      Şifre Tekrar *
                     </label>
                     <div className="relative">
                       <input
                         id="confirmPassword"
+                        name="confirmPassword"
                         type={showConfirmPassword ? "text" : "password"}
-                        value={confirmPassword}
-                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={formData.confirmPassword}
+                        onChange={handleInputChange}
                         placeholder="Şifrenizi tekrar giriniz"
                         required
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 pl-12 pr-12"
@@ -276,7 +461,7 @@ export const PasswordStrengthExample = () => {
                         {showConfirmPassword ? <HiEyeOff size={20} /> : <HiEye size={20} />}
                       </button>
                     </div>
-                    {confirmPassword && password !== confirmPassword && (
+                    {formData.confirmPassword && formData.password !== formData.confirmPassword && (
                       <p className="text-red-500 text-xs mt-1">Şifreler eşleşmiyor</p>
                     )}
                   </div>
@@ -292,7 +477,7 @@ export const PasswordStrengthExample = () => {
                     />
                     <label htmlFor="acceptTerms" className="ml-2 block text-sm text-gray-900">
                       <a href="#" className="text-blue-600 hover:text-blue-700">Kullanım koşullarını</a> ve{' '}
-                      <a href="#" className="text-blue-600 hover:text-blue-700">gizlilik politikasını</a> kabul ediyorum
+                      <a href="#" className="text-blue-600 hover:text-blue-700">gizlilik politikasını</a> kabul ediyorum *
                     </label>
                   </div>
 
@@ -363,3 +548,5 @@ export const PasswordStrengthExample = () => {
     </div>
   );
 };
+
+export default PasswordStrengthExample;

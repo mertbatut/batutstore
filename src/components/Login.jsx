@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import axios from 'axios';
 import Header from './Header';
 import Footer from './Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { HiCheck, HiX, HiEye, HiEyeOff } from 'react-icons/hi';
+import { HiEye, HiEyeOff } from 'react-icons/hi';
+import { authService } from '../api/authService';
 
 const LoginPage = () => {
     const history = useHistory();
@@ -13,28 +13,60 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            setIsAuthenticated(true);
+        // Kullanıcı zaten giriş yapmışsa direkt yönlendir
+        if (authService.isAuthenticated()) {
+            history.push('/');
         }
-    }, []);
+    }, [history]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
         setIsLoading(true);
 
-        const storedEmail = localStorage.getItem('email');
-        const storedPassword = localStorage.getItem('password');
+        // Basic validation
+        if (!email.trim()) {
+            setError('E-posta adresi zorunludur.');
+            toast.error('E-posta adresi zorunludur!', {
+                position: "top-right",
+                autoClose: 3000,
+            });
+            setIsLoading(false);
+            return;
+        }
 
-        // Simulate loading for better UX
-        setTimeout(() => {
-            if (email === storedEmail && password === storedPassword) {
-                setIsAuthenticated(true);
+        if (!email.includes('@')) {
+            setError('Geçerli bir e-posta adresi giriniz.');
+            toast.error('Geçerli bir e-posta adresi giriniz!', {
+                position: "top-right",
+                autoClose: 3000,
+            });
+            setIsLoading(false);
+            return;
+        }
+
+        if (!password.trim()) {
+            setError('Şifre zorunludur.');
+            toast.error('Şifre zorunludur!', {
+                position: "top-right",
+                autoClose: 3000,
+            });
+            setIsLoading(false);
+            return;
+        }
+
+        try {
+            const credentials = {
+                email: email.toLowerCase().trim(),
+                password: password
+            };
+
+            const response = await authService.login(credentials);
+
+            if (response.success) {
                 toast.success('Giriş başarılı! Yönlendiriliyorsunuz...', {
                     position: "top-right",
                     autoClose: 1500,
@@ -44,12 +76,29 @@ const LoginPage = () => {
                     draggable: true,
                 });
 
+                // Form'u temizle
+                setEmail('');
+                setPassword('');
+
                 setTimeout(() => {
                     history.push('/About');
                 }, 1500);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            
+            if (error.errors && error.errors.length > 0) {
+                setError(error.errors.join(' '));
+                error.errors.forEach(err => {
+                    toast.error(err, {
+                        position: "top-right",
+                        autoClose: 3000,
+                    });
+                });
             } else {
-                setError('Kullanıcı bulunamadı veya şifre hatalı.');
-                toast.error('E-posta veya şifre hatalı!', {
+                const errorMessage = error.message || 'Giriş işlemi başarısız oldu.';
+                setError(errorMessage);
+                toast.error(errorMessage, {
                     position: "top-right",
                     autoClose: 3000,
                     hideProgressBar: false,
@@ -58,8 +107,9 @@ const LoginPage = () => {
                     draggable: true,
                 });
             }
+        } finally {
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
     return (
@@ -179,6 +229,22 @@ const LoginPage = () => {
                                             </button>
                                         </p>
                                     </div>
+
+                                    <div className="text-center">
+                                        <button
+                                            type="button"
+                                            onClick={() => {
+                                                // Şifre sıfırlama sayfasına yönlendir
+                                                toast.info('Şifre sıfırlama özelliği yakında aktif olacak.', {
+                                                    position: "top-right",
+                                                    autoClose: 3000,
+                                                });
+                                            }}
+                                            className="text-blue-600 hover:text-blue-700 text-sm transition-colors duration-200"
+                                        >
+                                            Şifrenizi mi unuttunuz?
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
 
@@ -194,11 +260,27 @@ const LoginPage = () => {
                                 </div>
 
                                 <div className="mt-6 grid grid-cols-2 gap-3">
-                                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200">
+                                    <button 
+                                        onClick={() => {
+                                            toast.info('Google ile giriş özelliği yakında aktif olacak.', {
+                                                position: "top-right",
+                                                autoClose: 3000,
+                                            });
+                                        }}
+                                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200"
+                                    >
                                         <i className="fab fa-google text-red-500 mr-2"></i>
                                         Google
                                     </button>
-                                    <button className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200">
+                                    <button 
+                                        onClick={() => {
+                                            toast.info('Facebook ile giriş özelliği yakında aktif olacak.', {
+                                                position: "top-right",
+                                                autoClose: 3000,
+                                            });
+                                        }}
+                                        className="w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50 transition-colors duration-200"
+                                    >
                                         <i className="fab fa-facebook text-blue-600 mr-2"></i>
                                         Facebook
                                     </button>
