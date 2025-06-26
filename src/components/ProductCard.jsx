@@ -1,81 +1,118 @@
-import React, { useState } from 'react';
-import "../index.css"
-const images = {
-  Blue: "https://s3-alpha-sig.figma.com/img/9da5/ab42/c0357746eb27e42fff6279478e2c8a48?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=pmfHP--vTNkIosajBlttlcHUCHC1wy23RabxeVVpem7thxFSuC-Qmjsj~HqDAmUDMWb-jWqNibiHcEKa1b7v1iNzZACxMBbizO-arVwdV1etMellGh2F3SqNZVj8~SV0F6r2rFVLtyeCBmwmeFm5v-EHcFfUele57dyISB0nyzF-Sx2g-5zPeqEZi22Y3Wp9-kS8Nv5Q7Z97XXQ~oYvDAbHkG0iI7gClm4nmB7eF0BPawBiymMMTrjO5SPOaViQknAncP7ahne3ShG5gfs6aFQO-fyiXSFZsx~4LYhq5a1BN8lpRWpbDWwkhsz75Rsm7sEMHKflWIbd~Xn16ojXtRA__",
-  Green: "https://s3-alpha-sig.figma.com/img/b384/eba6/08bd8616723a95d25fce7dcb8f25ba9d?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=HsJaicJzN7NY0h0scJHCftCxwz3wLCCgQzZ~o~iAtvQSZuoXJEH8r3IMiGUBMpe5pMuGEjhu0hEGH~YCBfkir~j9UmaSXvvvh24yVEsD9jLrULGtoWSdRvAU36khAEtziehojC7OmuAYtDI9cXHGkkUqkIa~457nEbXAe-8rZoBt~LEDY~F~XNNvWlvsUSUbiT4f46D-O6YV1QQY90y5ZmW~VB-CrKgk0BrRSDlRIRwV0TpD~r1EoJk6T6xA8cqRgB5ffLBI6W2siw1ruk89NCw3IjjSklWYOja~Nf9fgU-vavHN3ir2dMeQcS7fXKko7i4QQh4NZ029Gn~1RcHDyg__",
-  Orange: "https://s3-alpha-sig.figma.com/img/3e7f/7eaf/d5316e4fa827cf3570a2a8c7855d5a94?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=DMpNTMSl9s9AnMBpKhQQe7a4HoAW42vMZUkDt8b1m~LutqrXokxFxNsep~C6rreFenC1d~OWshEtW6hFq415PkeN8hN932U1UHK2uTyIl-H1weeJjZRfNYk59tCtVvX5wVLGQ1RTR9Oz-QG35dx404RzyBWmwNZl-wHC6uXPIGpjTbokC4pkNNLFNUkjsPn5F7gt7R4GU3yF9ZCt-e5w7vlyUoBFSVUxnIHRTzVGnFmaV~NAJo1AcMj3IfapUotlJIPxG2~fxqqJ-38bjcIuPw5e4uS0oWLhhO1SmaE7ExEdzd0nZaUo2BUqNp5rKb3Nc30mVDmpqP2AbdrPsyz59g__",
-  Black: "https://s3-alpha-sig.figma.com/img/edfc/ad0d/ba1967435dad649ed91c2e00be5f640f?Expires=1717372800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=MqrD34rJBR~F-2J4cVOYT7EMTMCDp771afP81I66-sqBtFlZMLHl6X0Y5mYjWtHMIcdD-u0nDoV6ZOhQiqjweoDWONC073ADdX9fIw37~FLsOHKJzfiLQV3MOCUxU10rSdTZMX2id5csU0cz5BUa9NGG-Y1OANo2v~1XqYWYiXUHbT8G1TJxqb9KOpOVcXX07pEnrVyVbun79dGSyHT5hHnPd1oaRrpkay4B0GEF1EpbyIkDipO0iF0cEUD07PeA7ywM6865JL7oO52t7lwA1pGo2VBqSqJjZ65hymXb6z1DOyqMfb6ekacEc0dqu-2waE2xGTyOoHa-KD4nCrnwrg__"
+// ProductCard.js - Ayrı component dosyası
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
+// Color mapping for hex colors
+const colorMapping = {
+  'Blue': '#23A6F0',
+  'Green': '#23856D', 
+  'Orange': '#E77C40',
+  'Black': '#252B42'
 };
 
-export default function ProductCardComponent() {
-  const [selectedColor, setSelectedColor] = useState('Blue');
+// Tek bir product kartı
+const ProductCard = ({ product }) => {
+  const [selectedColor, setSelectedColor] = useState(product.colors?.[0] || 'Blue');
+  const [isWishlisted, setIsWishlisted] = useState(false);
+  const history = useHistory();
 
-  const handleColorChange = (event) => {
-    setSelectedColor(event.target.value);
+  // Get the image for the selected color
+  const currentImage = product.images?.[selectedColor] || product.images?.Blue || '';
+
+  const handleQuickView = () => {
+    history.push(`/product/${product.id}`);
   };
 
   return (
-    <div className='GroupTabProduct flex flex-col items-center'>
-      <div className='ItemCard flex flex-col items-center'>
-        <div className='ItemCard1 h-[300px] w-[239px] '>
-          <img src={images[selectedColor]} alt="" />
+    <div className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden">
+      <div className="relative overflow-hidden cursor-pointer" onClick={handleQuickView}>
+        <img
+          src={currentImage}
+          alt={product.name}
+          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+        
+        {/* Badges */}
+        <div className="absolute top-3 left-3 flex flex-col gap-2">
+          {product.isNew && (
+            <span className="bg-red-500 text-white px-2 py-1 rounded text-xs font-medium">
+              NEW
+            </span>
+          )}
+          <span className="bg-green-500 text-white px-2 py-1 rounded text-xs font-medium">
+            -{Math.round(((product.originalPrice - product.salePrice) / product.originalPrice) * 100)}%
+          </span>
         </div>
-        <div className='ItemCard2 gap-2.5 flex flex-col items-center'>
-          <h5 className='font-bold text-base'>Graphic Design</h5>
-          <a href="Category"><p className='font-bold text-sm text-[#737373]'>English Department</p></a>
-          <div className='Pricess flex gap-1.5 py-1.5 px-1 text-base font-bold'>
-            <p className='text-[#BDBDBD]'>$16.48</p>
-            <p className='text-[#23856D]'>$6.48</p>
-          </div>
+
+        {/* Wishlist Button */}
+        <button
+          onClick={() => setIsWishlisted(!isWishlisted)}
+          className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:shadow-lg transition-all duration-200"
+        >
+          <i className={`fa-heart text-lg ${isWishlisted ? 'fas text-red-500' : 'far text-gray-400'}`}></i>
+        </button>
+
+        {/* Quick View Button */}
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+          <button 
+            onClick={handleQuickView}
+            className="bg-white text-gray-800 px-4 py-2 rounded-lg font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:bg-gray-50"
+          >
+            Quick View
+          </button>
         </div>
       </div>
-      <fieldset className='flex gap-1.5'>
-        <legend className="sr-only">Select Color</legend>
-        <div className="flex items-center mb-4">
-          <input
-            id="color-option-1"
-            type="radio"
-            name="color"
-            value="Blue"
-            className="w-4 h-4 bg-[#23A6F0]"
-            checked={selectedColor === 'Blue'}
-            onChange={handleColorChange}
-          />
+
+      <div className="p-4">
+        <div className="text-xs text-gray-500 mb-1">{product.category}</div>
+        <h3 
+          className="font-semibold text-gray-800 mb-2 line-clamp-2 cursor-pointer hover:text-blue-600 transition-colors"
+          onClick={handleQuickView}
+        >
+          {product.name}
+        </h3>
+        
+        <div className="flex items-center gap-2 mb-3">
+          <span className="text-lg font-bold text-green-600">${product.salePrice}</span>
+          <span className="text-sm text-gray-400 line-through">${product.originalPrice}</span>
         </div>
-        <div className="flex items-center mb-4">
-          <input
-            id="color-option-2"
-            type="radio"
-            name="color"
-            value="Green"
-            className="w-4 h-4 bg-[#23856D]"
-            checked={selectedColor === 'Green'}
-            onChange={handleColorChange}
-          />
+
+        {/* Color Options */}
+        <div className="flex gap-2 mb-4">
+          {product.colors?.map((color, index) => (
+            <button
+              key={index}
+              onClick={() => setSelectedColor(color)}
+              className={`w-4 h-4 rounded-full border-2 ${
+                selectedColor === color ? 'border-gray-800 scale-110' : 'border-gray-300'
+              } transition-all duration-200`}
+              style={{ backgroundColor: colorMapping[color] || color }}
+            />
+          ))}
         </div>
-        <div className="flex items-center mb-4">
-          <input
-            id="color-option-3"
-            type="radio"
-            name="color"
-            value="Orange"
-            className="w-4 h-4 bg-[#E77C40]"
-            checked={selectedColor === 'Orange'}
-            onChange={handleColorChange}
-          />
-        </div>
-        <div className="flex items-center mb-4">
-          <input
-            id="color-option-4"
-            type="radio"
-            name="color"
-            value="Black"
-            className="w-4 h-4 bg-[#252B42]"
-            checked={selectedColor === 'Black'}
-            onChange={handleColorChange}
-          />
-        </div>
-      </fieldset>
+
+        {/* Add to Cart Button */}
+        <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-medium hover:bg-blue-700 transition-colors duration-200">
+          Add to Cart
+        </button>
+      </div>
     </div>
   );
-}
+};
+
+// PropTypes for ProductCard
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    name: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    salePrice: PropTypes.number.isRequired,
+    originalPrice: PropTypes.number.isRequired,
+    colors: PropTypes.arrayOf(PropTypes.string),
+    images: PropTypes.object,
+    isNew: PropTypes.bool
+  }).isRequired
+};
+
+export default ProductCard;

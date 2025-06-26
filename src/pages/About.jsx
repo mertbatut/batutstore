@@ -3,7 +3,7 @@ import React from 'react'
 import Footer from '../components/Footer'
 import Team from '../components/Team'
 import Brands from '../components/Brands'
-import Header2 from '../components/Header2'
+import Header from '../components/Header'
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import ProductPage from './ProductDetailPage'
 
@@ -17,7 +17,7 @@ export default function About() {
       <Switch>
         <Route path={`${path}/ProductPage`} component={ProductPage} />
       </Switch>
-           <Header2/>
+           <Header/>
             <div className='Deben1 flex justify-center'>
                 <div className='AboutText flex py-28 gap-20  w-[1050px]'>
                     <div className='AboutTextrow flex flex-col  w-[559px] gap-9'>

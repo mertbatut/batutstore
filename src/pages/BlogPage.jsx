@@ -1,240 +1,201 @@
-import React, { Component } from 'react'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
+import { Component } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import BlogCard from '../components/BlogCard';
 
 export default class BlogPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      blogs: [],
+      filteredBlogs: [],
+      selectedCategory: 'All',
+      searchTerm: '',
+      loading: true,
+      error: null
+    };
+  }
+
+  // Fetch blog data when component mounts
+  componentDidMount() {
+    this.fetchBlogData();
+  }
+
+  // Fetch blog data from public directory
+  fetchBlogData = async () => {
+    try {
+      const response = await fetch('/data/blog.json');
+      if (!response.ok) {
+        throw new Error('Failed to fetch blog data');
+      }
+      const data = await response.json();
+      this.setState({
+        blogs: data.blogs,
+        filteredBlogs: data.blogs,
+        loading: false
+      });
+    } catch (error) {
+      console.error('Error fetching blog data:', error);
+      this.setState({
+        error: error.message,
+        loading: false
+      });
+    }
+  }
+
+  // Kategori filtreleme
+  handleCategoryFilter = (category) => {
+    this.setState({
+      selectedCategory: category,
+      filteredBlogs: category === 'All' 
+        ? this.state.blogs 
+        : this.state.blogs.filter(blog => blog.category === category)
+    });
+  }
+
+  // Arama işlevi
+  handleSearch = (e) => {
+    const searchTerm = e.target.value.toLowerCase();
+    this.setState({
+      searchTerm,
+      filteredBlogs: this.state.blogs.filter(blog =>
+        blog.title.toLowerCase().includes(searchTerm) ||
+        blog.description.toLowerCase().includes(searchTerm) ||
+        blog.category.toLowerCase().includes(searchTerm)
+      )
+    });
+  }
+
+  // Kategorileri al
+  getCategories = () => {
+    const categories = ['All', ...new Set(this.state.blogs.map(blog => blog.category))];
+    return categories;
+  }
+
   render() {
+    const { filteredBlogs, selectedCategory, searchTerm, loading, error } = this.state;
+    const categories = this.getCategories();
+
+    // Loading state
+    if (loading) {
+      return (
+        <div className="min-h-screen bg-gray-50">
+          <Header />
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600">Loading blog posts...</p>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      );
+    }
+
+    // Error state
+    if (error) {
+      return (
+        <div className="min-h-screen bg-gray-50">
+          <Header />
+          <div className="flex items-center justify-center py-20">
+            <div className="text-center">
+              <i className="fas fa-exclamation-triangle text-red-500 text-4xl mb-4"></i>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Error Loading Blog Posts</h3>
+              <p className="text-gray-600 mb-4">{error}</p>
+              <button 
+                onClick={this.fetchBlogData}
+                className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
+              >
+                Try Again
+              </button>
+            </div>
+          </div>
+          <Footer />
+        </div>
+      );
+    }
+
     return (
-     <><div>
+      <div className="min-h-screen bg-gray-50">
         <Header />
-        <div className='BlogRow2 flex justify-center gap-8 pt-14'>
-          <div className='BlogCard flex '>
-            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-              <div className='CardFixedImg '>
-                <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-              </div>
-              <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                <div className='CardHeader1 flex gap-4'>
-                  <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                  <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                  <p className='text-xs text-[#737373] font-normal'>New</p>
-                </div>
-                <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                  (L'integral)</h4>
-                <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                  you where you work. It's only a
-                  keystroke away.</p>
-                <div className='CardComments flex  gap-52'>
-                  <div className='TimeIcon flex gap-1.5'>
-                    <i class="fa-regular fa-clock"></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                  <div className='TimeIcon2 flex gap-1.5'>
-                    <i class="fa-solid fa-chart-line "></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                </div>
-                <div className='LearnMore'>
-                  <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='BlogCard2'>
-            <div className='BlogCard flex pb-28'>
-              <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-                <div className='CardFixedImg '>
-                  <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-                </div>
-                <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                  <div className='CardHeader1 flex gap-4'>
-                    <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                    <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                    <p className='text-xs text-[#737373] font-normal'>New</p>
-                  </div>
-                  <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                    (L'integral)</h4>
-                  <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                    you where you work. It's only a
-                    keystroke away.</p>
-                  <div className='CardComments flex  gap-52'>
-                    <div className='TimeIcon flex gap-1.5'>
-                      <i class="fa-regular fa-clock"></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                    <div className='TimeIcon2 flex gap-1.5'>
-                      <i class="fa-solid fa-chart-line "></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                  </div>
-                  <div className='LearnMore'>
-                    <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-              </div>
-            </div>
-            <div className='BlogRow2 flex justify-center gap-8 pt-14'>
-          <div className='BlogCard flex '>
-            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-              <div className='CardFixedImg '>
-                <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-              </div>
-              <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                <div className='CardHeader1 flex gap-4'>
-                  <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                  <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                  <p className='text-xs text-[#737373] font-normal'>New</p>
-                </div>
-                <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                  (L'integral)</h4>
-                <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                  you where you work. It's only a
-                  keystroke away.</p>
-                <div className='CardComments flex  gap-52'>
-                  <div className='TimeIcon flex gap-1.5'>
-                    <i class="fa-regular fa-clock"></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                  <div className='TimeIcon2 flex gap-1.5'>
-                    <i class="fa-solid fa-chart-line "></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                </div>
-                <div className='LearnMore'>
-                  <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='BlogCard2'>
-            <div className='BlogCard flex pb-28'>
-              <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-                <div className='CardFixedImg '>
-                  <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-                </div>
-                <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                  <div className='CardHeader1 flex gap-4'>
-                    <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                    <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                    <p className='text-xs text-[#737373] font-normal'>New</p>
-                  </div>
-                  <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                    (L'integral)</h4>
-                  <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                    you where you work. It's only a
-                    keystroke away.</p>
-                  <div className='CardComments flex  gap-52'>
-                    <div className='TimeIcon flex gap-1.5'>
-                      <i class="fa-regular fa-clock"></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                    <div className='TimeIcon2 flex gap-1.5'>
-                      <i class="fa-solid fa-chart-line "></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                  </div>
-                  <div className='LearnMore'>
-                    <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-              </div>
-              <div className='BlogRow2 flex justify-center gap-8 pt-14'>
-          <div className='BlogCard flex '>
-            <div className='ContentCard bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-              <div className='CardFixedImg '>
-                <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-              </div>
-              <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                <div className='CardHeader1 flex gap-4'>
-                  <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                  <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                  <p className='text-xs text-[#737373] font-normal'>New</p>
-                </div>
-                <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                  (L'integral)</h4>
-                <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                  you where you work. It's only a
-                  keystroke away.</p>
-                <div className='CardComments flex  gap-52'>
-                  <div className='TimeIcon flex gap-1.5'>
-                    <i class="fa-regular fa-clock"></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                  <div className='TimeIcon2 flex gap-1.5'>
-                    <i class="fa-solid fa-chart-line "></i>
-                    <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                  </div>
-                </div>
-                <div className='LearnMore'>
-                  <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className='BlogCard2'>
-            <div className='BlogCard flex pb-28'>
-              <div className='ContentCard1 bg-[#FFFFFF] flex flex-col w-[470px] h-[606px] drop-shadow-xl'>
-                <div className='CardFixedImg '>
-                  <div className='ImageTextCard absolute ml-4 mt-4 text-white bg-[#E74040] rounded px-2.5 font-bold text-sm'>NEW</div>
-                  <img className='h-[300px] w-[470px]' src="https://s3-alpha-sig.figma.com/img/679b/3cdf/17b8ec542ce1c452944dfb51f10ba010?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=EDPYelTfCxZdPvh88tNIRvtduECytc2Vc73cMXzKGB05HeXTJ8SzOcNMGtKY5LQmkAvHIgBCj2qnjAoojoeehT1EHCf57VznRiwfIQCziemUTe8KqOGynN1e2GS-yki7F-knQd-3YlBUD3gRERtjotYL6vU8dP5XjtesFC3Fuh5TpnZJgxkbZ26~XqNMRPT5emhCoSd81KPHR20yl4NcCIliCk4QaYEUNIxOOmD7Na3leCz447u6CDnsp3ax2dXNgRIzKMSn0irl~6K9Is20IrG~buNCqVBaodFoWY2XmcdUumLc7ZcmmnYMZkhFCXlrrjDdvctWWpdwuOeCCMDz7g__" alt="" />
-                </div>
-                <div className='CardFixedText flex flex-col items-start gap-2.5 h-[306px] w-[465px] pl-8 justify-evenly'>
-                  <div className='CardHeader1 flex gap-4'>
-                    <p className='text-xs text-[#8EC2F2] font-normal'>Google</p>
-                    <p className='text-xs text-[#737373] font-normal'>Trending</p>
-                    <p className='text-xs text-[#737373] font-normal'>New</p>
-                  </div>
-                  <h4 className='w-[247px] text-xl text-[#252B42] font-bold'>Loudest à la Madison #1
-                    (L'integral)</h4>
-                  <p className='w-[280px] font-normal text-sm text-[#737373]'>We focus on ergonomics and meeting
-                    you where you work. It's only a
-                    keystroke away.</p>
-                  <div className='CardComments flex  gap-52'>
-                    <div className='TimeIcon flex gap-1.5'>
-                      <i class="fa-regular fa-clock"></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                    <div className='TimeIcon2 flex gap-1.5'>
-                      <i class="fa-solid fa-chart-line "></i>
-                      <p className='text-xs text-[#737373] font-normal'>22 April 2021</p>
-                    </div>
-                  </div>
-                  <div className='LearnMore'>
-                    <p className='text-sm font-bold text-[#737373]'>Learn More <i class="fa-solid fa-angle-right"></i></p>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-              </div>
-            
-         
-      <Footer /></>
-       
-          
-       
         
-      
-    )
+        {/* Hero Section */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-blue-700">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl font-bold text-white mb-4">Our Blog</h1>
+            <p className="text-blue-100 text-lg">
+              Stay updated with the latest news, trends, and insights from our experts
+            </p>
+          </div>
+        </section>
+
+        {/* Filter and Search Section */}
+        <section className="py-8 px-4 sm:px-6 lg:px-8 bg-white border-b">
+          <div className="max-w-7xl mx-auto">
+            <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+              {/* Search Bar */}
+              <div className="relative flex-1 max-w-md">
+                <input
+                  type="text"
+                  placeholder="Search blog posts..."
+                  value={searchTerm}
+                  onChange={this.handleSearch}
+                  className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <i className="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+              </div>
+
+              {/* Category Filter */}
+              <div className="flex flex-wrap gap-2">
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => this.handleCategoryFilter(category)}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                      selectedCategory === category
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Blog Posts Grid */}
+        <section className="py-16 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            {filteredBlogs.length === 0 ? (
+              <div className="text-center py-12">
+                <i className="fas fa-search text-gray-400 text-4xl mb-4"></i>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">No blog posts found</h3>
+                <p className="text-gray-600">Try adjusting your search terms or filters.</p>
+              </div>
+            ) : (
+              <>
+                <div className="mb-8">
+                  <p className="text-gray-600">
+                    Showing {filteredBlogs.length} of {this.state.blogs.length} blog posts
+                    {selectedCategory !== 'All' && ` in "${selectedCategory}"`}
+                    {searchTerm && ` matching "${searchTerm}"`}
+                  </p>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {filteredBlogs.map((blog) => (
+                    <BlogCard key={blog.id} blog={blog} />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </section>
+
+        <Footer />
+      </div>
+    );
   }
 }
