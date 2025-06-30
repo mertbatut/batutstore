@@ -121,110 +121,61 @@ export default class Drop extends Component {
     this.setState({ selectedCategory: categoryId });
   }
 
-  getColorClasses = (color) => {
-    const colors = {
-      blue: {
-        bg: 'bg-blue-50',
-        text: 'text-blue-600',
-        border: 'border-blue-200',
-        hover: 'hover:bg-blue-100'
-      },
-      indigo: {
-        bg: 'bg-indigo-50', 
-        text: 'text-indigo-600',
-        border: 'border-indigo-200',
-        hover: 'hover:bg-indigo-100'
-      },
-      pink: {
-        bg: 'bg-pink-50',
-        text: 'text-pink-600', 
-        border: 'border-pink-200',
-        hover: 'hover:bg-pink-100'
-      },
-      green: {
-        bg: 'bg-green-50',
-        text: 'text-green-600',
-        border: 'border-green-200', 
-        hover: 'hover:bg-green-100'
-      }
-    };
-    return colors[color] || colors.blue;
-  }
-
   renderMobileDropdown() {
     const { categories, selectedCategory, featuredProducts } = this.state;
     const activeCategory = categories.find(cat => cat.id === selectedCategory);
     const featured = featuredProducts[selectedCategory];
 
     return (
-      <div className="bg-white border border-gray-200 rounded-xl shadow-xl overflow-hidden w-full max-w-sm mx-auto max-h-[80vh] flex flex-col">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden w-full max-w-xs mx-auto">
         
         {/* Mobile Header */}
-        <div className="bg-slate-800 px-4 py-3 flex-shrink-0">
+        <div className="bg-blue-600 px-4 py-3">
           <div className="flex items-center space-x-2 text-white">
-            <i className="fas fa-store text-sm"></i>
-            <h2 className="text-sm font-semibold">Kategoriler</h2>
+            <i className="fas fa-th-large text-sm"></i>
+            <h2 className="text-sm font-medium">Kategoriler</h2>
           </div>
         </div>
 
-        {/* Category Tabs - Scrollable */}
-        <div className="flex overflow-x-auto bg-gray-50 border-b flex-shrink-0 scrollbar-hide">
-          <div className="flex space-x-1 p-2 min-w-max">
-            {categories.map((category) => {
-              const colorClasses = this.getColorClasses(category.color);
-              return (
-                <button
-                  key={category.id}
-                  onClick={() => this.handleCategorySelect(category.id)}
-                  className={`flex-shrink-0 px-3 py-2 text-xs font-medium rounded-lg border transition-all ${
-                    selectedCategory === category.id
-                      ? `${colorClasses.text} ${colorClasses.bg} ${colorClasses.border}`
-                      : 'text-gray-600 border-gray-200 hover:text-gray-800 hover:bg-gray-100'
-                  }`}
-                >
-                  <i className={`${category.icon} mr-1`}></i>
-                  {category.title.split(' ')[0]}
-                </button>
-              );
-            })}
+        {/* Category Tabs */}
+        <div className="flex overflow-x-auto bg-gray-50 border-b">
+          <div className="flex space-x-1 p-3 min-w-max">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => this.handleCategorySelect(category.id)}
+                className={`flex-shrink-0 px-4 py-2 text-xs font-medium rounded-md border transition-colors whitespace-nowrap ${
+                  selectedCategory === category.id
+                    ? 'bg-blue-600 text-white border-blue-600'
+                    : 'text-gray-600 border-gray-300 hover:text-blue-600 hover:border-blue-300 bg-white'
+                }`}
+              >
+                <i className={`${category.icon} mr-1.5`}></i>
+                <span className="truncate">{category.title}</span>
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* Mobile Content - Scrollable */}
-        <div className="flex-1 overflow-y-auto">
+        {/* Mobile Content */}
+        <div className="max-h-80 overflow-y-auto">
           <div className="p-4">
-            {/* Featured Product - Mobile */}
-            <div className="mb-4 relative">
-              <div className="relative overflow-hidden rounded-lg">
-                <img
-                  src={featured.image}
-                  alt={featured.title}
-                  className="w-full h-32 object-cover"
-                />
-                <div className="absolute top-2 left-2">
-                  <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
-                    {featured.discount}
-                  </span>
-                </div>
-              </div>
-              <div className="mt-2">
-                <h3 className="font-semibold text-sm text-gray-900">{featured.title}</h3>
-                <p className="text-xs text-gray-600">{featured.description}</p>
-              </div>
-            </div>
-
-            {/* Category Items - Mobile */}
-            <div className="space-y-1 mb-4">
-              <h4 className="font-medium text-sm text-gray-900 mb-2">{activeCategory?.title}</h4>
+            
+            {/* Category Items */}
+            <div className="space-y-2 mb-6">
+              <h4 className="font-medium text-sm text-gray-900 mb-3 flex items-center">
+                <i className={`${activeCategory?.icon} mr-2 text-blue-600`}></i>
+                {activeCategory?.title}
+              </h4>
               {activeCategory?.items.map((item, index) => (
                 <Link
                   key={index}
                   to={item.path}
-                  className="flex items-center justify-between py-2 px-3 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                  className="flex items-center justify-between py-2.5 px-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-md transition-colors border border-transparent hover:border-blue-200"
                 >
-                  <span>{item.name}</span>
+                  <span className="font-medium">{item.name}</span>
                   {item.popular && (
-                    <span className="bg-orange-100 text-orange-600 text-xs px-2 py-0.5 rounded-full">
+                    <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-medium">
                       Popüler
                     </span>
                   )}
@@ -232,34 +183,53 @@ export default class Drop extends Component {
               ))}
             </div>
 
-            {/* Popular Categories Mobile */}
-            <div className="border-t pt-4">
-              <h4 className="font-medium text-sm text-gray-900 mb-3 flex items-center">
-                <i className="fas fa-fire text-orange-500 mr-2"></i>
-                Popüler
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {["Yeni Sezon", "İndirimler", "En Çok Satan"].map((tag, index) => (
-                  <Link
-                    key={index}
-                    to={`/products/category/${tag.toLowerCase().replace(' ', '-')}`}
-                    className="px-2 py-1 bg-gray-100 text-gray-700 text-xs rounded-full hover:bg-gray-200 transition-colors"
-                  >
-                    {tag}
-                  </Link>
-                ))}
+            {/* Featured Product */}
+            <div className="bg-gray-50 rounded-lg p-4 mb-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0">
+                  <img
+                    src={featured.image}
+                    alt={featured.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="flex-1">
+                  <h5 className="font-medium text-sm text-gray-900 mb-1">{featured.title}</h5>
+                  <p className="text-xs text-gray-600 mb-2">{featured.description}</p>
+                  <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                    {featured.discount}
+                  </span>
+                </div>
               </div>
+            </div>
+
+            {/* Quick Links */}
+            <div className="grid grid-cols-2 gap-2">
+              <Link
+                to="/products?category=sale"
+                className="flex items-center justify-center py-2 text-xs text-red-600 border border-red-200 rounded-md hover:bg-red-50 transition-colors"
+              >
+                <i className="fas fa-tag mr-1"></i>
+                İndirimler
+              </Link>
+              <Link
+                to="/products?category=new"
+                className="flex items-center justify-center py-2 text-xs text-green-600 border border-green-200 rounded-md hover:bg-green-50 transition-colors"
+              >
+                <i className="fas fa-star mr-1"></i>
+                Yeniler
+              </Link>
             </div>
           </div>
         </div>
 
         {/* Mobile Footer */}
-        <div className="p-4 border-t bg-gray-50 flex-shrink-0">
+        <div className="p-4 border-t bg-gray-50">
           <Link
             to="/products"
-            className="block w-full py-2 bg-slate-800 text-white text-center text-sm font-medium rounded-lg hover:bg-slate-700 transition-colors"
+            className="block w-full py-2.5 bg-blue-600 text-white text-center text-sm font-medium rounded-md hover:bg-blue-700 transition-colors"
           >
-            Tüm Ürünler
+            Tüm Ürünleri Görüntüle
           </Link>
         </div>
       </div>
@@ -272,100 +242,100 @@ export default class Drop extends Component {
     const featured = featuredProducts[currentCategory];
 
     return (
-      <div className="bg-white border border-gray-200 rounded-xl shadow-2xl overflow-hidden w-[900px]">
+      <div className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden w-[800px]">
         
         {/* Desktop Header */}
-        <div className="bg-slate-800 px-6 py-4">
-          <div className="flex items-center space-x-2 text-white">
-            <i className="fas fa-store text-lg"></i>
-            <h2 className="text-lg font-bold">Mağaza Kategorileri</h2>
+        <div className="bg-blue-600 px-6 py-4">
+          <div className="flex items-center space-x-3 text-white">
+            <i className="fas fa-th-large text-lg"></i>
+            <h2 className="text-lg font-medium">Ürün Kategorileri</h2>
           </div>
         </div>
 
         <div className="flex">
-          {/* Categories Grid */}
+          {/* Categories Section */}
           <div className="flex-1 p-6">
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 gap-6">
               {categories.map((category, index) => {
-                const colorClasses = this.getColorClasses(category.color);
                 const isActive = currentCategory === category.id;
                 
                 return (
                   <div 
                     key={index} 
-                    className="space-y-4"
+                    className="space-y-3"
                     onMouseEnter={() => this.handleCategoryHover(category.id)}
                     onMouseLeave={() => this.handleCategoryHover(null)}
                   >
                     
                     {/* Category Header */}
-                    <div className={`flex items-center space-x-3 p-3 rounded-lg border transition-all ${
+                    <div className={`flex items-center space-x-3 p-3 rounded-lg border transition-all cursor-pointer ${
                       isActive 
-                        ? `${colorClasses.bg} ${colorClasses.border}` 
-                        : 'border-gray-100 hover:border-gray-200'
+                        ? 'bg-blue-50 border-blue-200 shadow-sm' 
+                        : 'border-gray-200 hover:border-gray-300 hover:bg-gray-50'
                     }`}>
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                        isActive ? colorClasses.bg : 'bg-gray-100'
+                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                        isActive ? 'bg-blue-100' : 'bg-gray-100'
                       }`}>
-                        <i className={`${category.icon} ${isActive ? colorClasses.text : 'text-gray-600'} text-sm`}></i>
+                        <i className={`${category.icon} ${isActive ? 'text-blue-600' : 'text-gray-600'} text-lg`}></i>
                       </div>
-                      <h3 className={`font-bold text-sm ${isActive ? colorClasses.text : 'text-gray-900'}`}>
+                      <h3 className={`font-semibold text-base ${isActive ? 'text-blue-700' : 'text-gray-900'}`}>
                         {category.title}
                       </h3>
                     </div>
 
                     {/* Category Items */}
-                    <div className="space-y-1">
-                      {category.items.map((item, itemIndex) => (
+                    <div className="space-y-1 ml-3">
+                      {category.items.slice(0, 4).map((item, itemIndex) => (
                         <Link
                           key={itemIndex}
                           to={item.path}
-                          className={`flex items-center justify-between py-2 px-3 text-sm rounded-lg transition-all duration-200 ${
+                          className={`flex items-center justify-between py-2 px-3 text-sm rounded-md transition-all duration-200 ${
                             isActive 
-                              ? `${colorClasses.hover} ${colorClasses.text}` 
+                              ? 'text-blue-700 hover:bg-blue-50 hover:text-blue-800' 
                               : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
                           }`}
                         >
-                          <span>{item.name}</span>
+                          <span className="font-medium">{item.name}</span>
                           {item.popular && (
-                            <span className="bg-orange-100 text-orange-600 text-xs px-2 py-0.5 rounded-full">
+                            <span className="bg-red-100 text-red-600 text-xs px-2 py-1 rounded-full font-medium">
                               Popüler
                             </span>
                           )}
                         </Link>
                       ))}
+                      
+                      {category.items.length > 4 && (
+                        <Link
+                          to={`/products?category=${category.title}`}
+                          className={`inline-flex items-center text-xs font-medium mt-2 px-3 py-1 ${
+                            isActive ? 'text-blue-600 hover:text-blue-700' : 'text-gray-500 hover:text-gray-700'
+                          }`}
+                        >
+                          +{category.items.length - 4} daha fazla
+                          <i className="fas fa-arrow-right ml-1 text-xs"></i>
+                        </Link>
+                      )}
                     </div>
-
-                    {/* View All Link */}
-                    <Link
-                      to={`/products/${category.id}`}
-                      className={`inline-flex items-center text-xs font-medium mt-2 ${
-                        isActive ? colorClasses.text : 'text-gray-500 hover:text-gray-700'
-                      }`}
-                    >
-                      Tümünü Gör
-                      <i className="fas fa-arrow-right ml-1 text-xs"></i>
-                    </Link>
                   </div>
                 );
               })}
             </div>
 
-            {/* Popular Categories */}
-            <div className="mt-8 pt-6 border-t border-gray-100">
-              <h4 className="font-bold text-gray-900 mb-4 flex items-center">
-                <i className="fas fa-fire text-orange-500 mr-2"></i>
-                Popüler Kategoriler
+            {/* Popular Tags */}
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <h4 className="font-semibold text-gray-900 mb-4 flex items-center">
+                <i className="fas fa-fire text-red-500 mr-2"></i>
+                Popüler Aramalar
               </h4>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Yeni Sezon", "İndirimli Ürünler", "En Çok Satanlar", 
-                  "Günün Fırsatları", "Premium Koleksiyon", "Spor Giyim"
+                  "Yeni Ürünler", "İndirimli", "En Çok Satanlar", 
+                  "Günün Fırsatları", "Ücretsiz Kargo", "Hızlı Teslimat"
                 ].map((tag, index) => (
                   <Link
                     key={index}
-                    to={`/products/category/${tag.toLowerCase().replace(' ', '-')}`}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-xs rounded-full hover:bg-slate-100 hover:text-slate-700 transition-colors"
+                    to={`/products?search=${tag.toLowerCase()}`}
+                    className="px-3 py-1.5 bg-gray-100 text-gray-700 text-sm rounded-full hover:bg-gray-200 hover:text-gray-800 transition-colors font-medium"
                   >
                     {tag}
                   </Link>
@@ -374,30 +344,27 @@ export default class Drop extends Component {
             </div>
           </div>
 
-          {/* Featured Product - Desktop */}
-          <div className="w-80 bg-gray-50 p-6 border-l border-gray-200">
-            <div className="sticky top-6">
+          {/* Featured Product Sidebar */}
+          <div className="w-72 bg-gray-50 p-6 border-l border-gray-200">
+            <div className="sticky top-0">
               
-              {/* Discount Badge */}
-              <div className="relative">
-                <div className="absolute top-4 left-4 z-10">
-                  <span className="bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                    {featured.discount}
-                  </span>
-                </div>
-
-                {/* Product Image */}
-                <div className="relative overflow-hidden rounded-xl mb-4">
+              {/* Featured Product */}
+              <div className="bg-white rounded-lg p-4 shadow-sm">
+                <div className="relative mb-4">
                   <img
                     src={featured.image}
                     alt={featured.title}
-                    className="w-full h-48 object-cover hover:scale-105 transition-transform duration-300"
+                    className="w-full h-40 object-cover rounded-lg"
                   />
+                  <div className="absolute top-3 left-3">
+                    <span className="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">
+                      {featured.discount}
+                    </span>
+                  </div>
                 </div>
 
-                {/* Product Info */}
                 <div className="space-y-3">
-                  <h3 className="font-bold text-gray-900 text-lg">
+                  <h3 className="font-semibold text-gray-900 text-lg">
                     {featured.title}
                   </h3>
                   <p className="text-gray-600 text-sm">
@@ -406,29 +373,45 @@ export default class Drop extends Component {
                   
                   <Link
                     to={featured.link}
-                    className="inline-flex items-center justify-center w-full py-3 bg-slate-800 text-white font-medium rounded-lg hover:bg-slate-700 transition-colors shadow-lg hover:shadow-xl"
+                    className="inline-flex items-center justify-center w-full py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
                   >
                     <span>Koleksiyonu İncele</span>
                     <i className="fas fa-arrow-right ml-2 text-sm"></i>
                   </Link>
                 </div>
+              </div>
 
-                {/* Quick Actions */}
-                <div className="mt-6 grid grid-cols-2 gap-3">
-                  <Link
-                    to="/products/sale"
-                    className="flex items-center justify-center py-2 text-xs text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition-colors"
-                  >
-                    <i className="fas fa-percentage mr-1"></i>
-                    İndirimler
-                  </Link>
-                  <Link
-                    to="/products/new"
-                    className="flex items-center justify-center py-2 text-xs text-green-600 border border-green-200 rounded-lg hover:bg-green-50 transition-colors"
-                  >
-                    <i className="fas fa-star mr-1"></i>
-                    Yeni Ürünler
-                  </Link>
+              {/* Quick Actions */}
+              <div className="mt-6 space-y-3">
+                <Link
+                  to="/products?sale=true"
+                  className="flex items-center justify-center py-3 text-red-600 border border-red-200 rounded-lg hover:bg-red-50 transition-colors font-medium"
+                >
+                  <i className="fas fa-percentage mr-2"></i>
+                  Tüm İndirimler
+                </Link>
+                <Link
+                  to="/products?new=true"
+                  className="flex items-center justify-center py-3 text-green-600 border border-green-200 rounded-lg hover:bg-green-50 transition-colors font-medium"
+                >
+                  <i className="fas fa-star mr-2"></i>
+                  Yeni Ürünler
+                </Link>
+              </div>
+
+              {/* Features */}
+              <div className="mt-6 space-y-2 text-sm text-gray-600">
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-shipping-fast text-green-600"></i>
+                  <span>Ücretsiz Kargo</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-undo text-blue-600"></i>
+                  <span>30 Gün İade</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <i className="fas fa-shield-alt text-purple-600"></i>
+                  <span>Güvenli Ödeme</span>
                 </div>
               </div>
             </div>
@@ -437,26 +420,16 @@ export default class Drop extends Component {
 
         {/* Footer */}
         <div className="bg-gray-50 px-6 py-4 border-t border-gray-200">
-          <div className="flex items-center justify-between text-sm">
-            <div className="flex items-center space-x-4 text-gray-600">
-              <div className="flex items-center space-x-1">
-                <i className="fas fa-truck text-green-600"></i>
-                <span>Ücretsiz Kargo</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <i className="fas fa-undo text-blue-600"></i>
-                <span>Kolay İade</span>
-              </div>
-              <div className="flex items-center space-x-1">
-                <i className="fas fa-shield-alt text-purple-600"></i>
-                <span>Güvenli Alışveriş</span>
-              </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-6 text-sm text-gray-600">
+              <span className="font-medium">💫 Premium alışveriş deneyimi</span>
             </div>
             <Link
               to="/products"
-              className="text-slate-700 hover:text-slate-900 font-medium"
+              className="text-blue-600 hover:text-blue-700 font-medium text-sm flex items-center"
             >
-              Tüm Ürünler →
+              Tüm Ürünleri Görüntüle
+              <i className="fas fa-arrow-right ml-1"></i>
             </Link>
           </div>
         </div>

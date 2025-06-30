@@ -17,9 +17,16 @@
         "Orange": "https://images.unsplash.com/photo-1484704849700-f032a568e944?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Blue", "hex": "#3b82f6", "stock": 15 },
+        { "name": "Green", "hex": "#10b981", "stock": 8 },
+        { "name": "Orange", "hex": "#f97316", "stock": 5 },
+        { "name": "Black", "hex": "#1f2937", "stock": 12 }
+      ],
+      "totalStock": 40,
       "brand": "TechSound",
-      "tags": ["wireless", "noise-canceling", "premium"]
+      "tags": ["wireless", "noise-canceling", "premium"],
+      "hasShipping": true
     },
     {
       "id": 2,
@@ -34,13 +41,25 @@
       "description": "Advanced smartwatch with health monitoring features",
       "images": {
         "Blue": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Silver": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Gold": "https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1434494878577-86c23bcb06b9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Blue", "hex": "#3b82f6", "stock": 22 },
+        { "name": "Silver", "hex": "#94a3b8", "stock": 18 },
+        { "name": "Gold", "hex": "#eab308", "stock": 7 },
+        { "name": "Black", "hex": "#1f2937", "stock": 25 }
+      ],
+      "sizeOptions": [
+        { "name": "38mm", "stock": 20 },
+        { "name": "42mm", "stock": 32 },
+        { "name": "44mm", "stock": 20 }
+      ],
+      "totalStock": 72,
       "brand": "SmartTech",
-      "tags": ["smartwatch", "health", "fitness"]
+      "tags": ["smartwatch", "health", "fitness"],
+      "hasShipping": true
     },
     {
       "id": 3,
@@ -59,9 +78,27 @@
         "Orange": "https://images.unsplash.com/photo-1551107696-a4b57a083e5a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Blue", "hex": "#3b82f6", "stock": 12 },
+        { "name": "Green", "hex": "#10b981", "stock": 8 },
+        { "name": "Orange", "hex": "#f97316", "stock": 15 },
+        { "name": "Black", "hex": "#1f2937", "stock": 20 }
+      ],
+      "sizeOptions": [
+        { "name": "36", "stock": 5 },
+        { "name": "37", "stock": 8 },
+        { "name": "38", "stock": 12 },
+        { "name": "39", "stock": 15 },
+        { "name": "40", "stock": 18 },
+        { "name": "41", "stock": 12 },
+        { "name": "42", "stock": 8 },
+        { "name": "43", "stock": 6 },
+        { "name": "44", "stock": 3 }
+      ],
+      "totalStock": 55,
       "brand": "SportStep",
-      "tags": ["running", "comfortable", "premium"]
+      "tags": ["running", "comfortable", "premium"],
+      "hasShipping": true
     },
     {
       "id": 4,
@@ -75,14 +112,19 @@
       "reviewCount": 174,
       "description": "Professional grade coffee maker for perfect brewing",
       "images": {
-        "Blue": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Silver": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+        "White": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Silver", "hex": "#94a3b8", "stock": 8 },
+        { "name": "White", "hex": "#ffffff", "stock": 12 },
+        { "name": "Black", "hex": "#1f2937", "stock": 6 }
+      ],
+      "totalStock": 26,
       "brand": "BrewMaster",
-      "tags": ["coffee", "professional", "kitchen"]
+      "tags": ["coffee", "professional", "kitchen"],
+      "hasShipping": false
     },
     {
       "id": 5,
@@ -97,13 +139,20 @@
       "description": "Compact and powerful portable bluetooth speaker",
       "images": {
         "Blue": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Red": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Orange": "https://images.unsplash.com/photo-1606318313613-428d3f575b23?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1589003077984-894e133dabab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Blue", "hex": "#3b82f6", "stock": 18 },
+        { "name": "Red", "hex": "#ef4444", "stock": 12 },
+        { "name": "Orange", "hex": "#f97316", "stock": 9 },
+        { "name": "Black", "hex": "#1f2937", "stock": 15 }
+      ],
+      "totalStock": 54,
       "brand": "SoundWave",
-      "tags": ["bluetooth", "portable", "speaker"]
+      "tags": ["bluetooth", "portable", "speaker"],
+      "hasShipping": true
     },
     {
       "id": 6,
@@ -117,14 +166,19 @@
       "reviewCount": 67,
       "description": "Durable and spacious laptop backpack for professionals",
       "images": {
-        "Blue": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1574150096959-773fb0e76f03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Black": "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "Navy": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80",
+        "Gray": "https://images.unsplash.com/photo-1581605405669-fcdf81165afa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Black": "https://images.unsplash.com/photo-1574150096959-773fb0e76f03?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Navy", "hex": "#1e3a8a", "stock": 14 },
+        { "name": "Gray", "hex": "#6b7280", "stock": 8 },
+        { "name": "Black", "hex": "#1f2937", "stock": 11 }
+      ],
+      "totalStock": 33,
       "brand": "CarryPro",
-      "tags": ["backpack", "laptop", "professional"]
+      "tags": ["backpack", "laptop", "professional"],
+      "hasShipping": true
     },
     {
       "id": 7,
@@ -138,14 +192,21 @@
       "reviewCount": 203,
       "description": "High precision wireless gaming mouse with RGB lighting",
       "images": {
-        "Blue": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "White": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Green": "https://images.unsplash.com/photo-1563297007-0686b7003af7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Purple": "https://images.unsplash.com/photo-1541140532154-b024d705b90a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1509695507497-903c140c43b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "White", "hex": "#ffffff", "stock": 25 },
+        { "name": "Green", "hex": "#10b981", "stock": 18 },
+        { "name": "Purple", "hex": "#8b5cf6", "stock": 12 },
+        { "name": "Black", "hex": "#1f2937", "stock": 30 }
+      ],
+      "totalStock": 85,
       "brand": "GameTech",
-      "tags": ["gaming", "wireless", "mouse", "rgb"]
+      "tags": ["gaming", "wireless", "mouse", "rgb"],
+      "hasShipping": true
     },
     {
       "id": 8,
@@ -159,35 +220,57 @@
       "reviewCount": 142,
       "description": "Stylish and practical handbag for everyday use",
       "images": {
-        "Blue": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Brown": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Beige": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Red": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
         "Black": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
+      "colorOptions": [
+        { "name": "Brown", "hex": "#92400e", "stock": 7 },
+        { "name": "Beige", "hex": "#d6d3d1", "stock": 12 },
+        { "name": "Red", "hex": "#ef4444", "stock": 5 },
+        { "name": "Black", "hex": "#1f2937", "stock": 9 }
+      ],
+      "totalStock": 33,
       "brand": "ElegantStyle",
-      "tags": ["handbag", "women", "fashion", "elegant"]
+      "tags": ["handbag", "women", "fashion", "elegant"],
+      "hasShipping": true
     },
     {
       "id": 9,
-      "name": "Elegant Women's Handbag",
+      "name": "Classic Cotton T-Shirt",
       "category": "Fashion",
-      "originalPrice": 129.99,
-      "salePrice": 89.99,
+      "originalPrice": 29.99,
+      "salePrice": 19.99,
       "isNew": false,
       "inStock": true,
-      "rating": 4.5,
-      "reviewCount": 142,
-      "description": "Stylish and practical handbag for everyday use",
+      "rating": 4.1,
+      "reviewCount": 88,
+      "description": "Comfortable classic cotton t-shirt for everyday wear",
       "images": {
-        "Blue": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Green": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Orange": "https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-        "Black": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+        "White": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Navy": "https://images.unsplash.com/photo-1622470953794-aa9c70b0fb9d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Gray": "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        "Black": "https://images.unsplash.com/photo-1583743814966-8936f37f86c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
       },
-      "colors": ["Blue", "Green", "Orange", "Black"],
-      "brand": "ElegantStyle",
-      "tags": ["handbag", "women", "fashion", "elegant"]
+      "colorOptions": [
+        { "name": "White", "hex": "#ffffff", "stock": 25 },
+        { "name": "Navy", "hex": "#1e3a8a", "stock": 20 },
+        { "name": "Gray", "hex": "#6b7280", "stock": 18 },
+        { "name": "Black", "hex": "#1f2937", "stock": 22 }
+      ],
+      "sizeOptions": [
+        { "name": "XS", "stock": 8 },
+        { "name": "S", "stock": 20 },
+        { "name": "M", "stock": 25 },
+        { "name": "L", "stock": 22 },
+        { "name": "XL", "stock": 15 },
+        { "name": "XXL", "stock": 8 }
+      ],
+      "totalStock": 85,
+      "brand": "BasicWear",
+      "tags": ["t-shirt", "cotton", "basic", "comfortable"],
+      "hasShipping": true
     }
   ],
   "categories": [
@@ -203,7 +286,7 @@
       "name": "Fashion", 
       "description": "Trendy clothing and fashion accessories",
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80",
-      "itemCount": 2
+      "itemCount": 3
     },
     {
       "id": 3,

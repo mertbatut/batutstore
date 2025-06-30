@@ -81,7 +81,7 @@ const LoginPage = () => {
                 setPassword('');
 
                 setTimeout(() => {
-                    history.push('/About');
+                    history.push('/');
                 }, 1500);
             }
         } catch (error) {
@@ -128,7 +128,7 @@ const LoginPage = () => {
                                 alt="Shopping Experience"
                                 className="w-full h-full object-cover"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            <div className="absolute inset-0 bg-black bg-opacity-40"></div>
                             <div className="absolute bottom-8 left-8 text-white">
                                 <h2 className="text-3xl font-bold mb-2">Welcome Back!</h2>
                                 <p className="text-lg opacity-90">Continue your amazing shopping journey with us</p>
@@ -202,7 +202,7 @@ const LoginPage = () => {
                                     <button
                                         type="submit"
                                         disabled={isLoading}
-                                        className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
+                                        className="w-full bg-slate-800 text-white py-3 px-4 rounded-lg font-medium hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
                                     >
                                         {isLoading ? (
                                             <>

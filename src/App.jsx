@@ -10,6 +10,7 @@ import Subscription from './layout/Subscription';
 import Login from './components/Login';
 import { PasswordStrengthExample } from './components/Register';
 import ProductPage from './pages/ProductDetailPage';
+import WishlistPage from './pages/WishlistPage';
 
 function App() {
   
@@ -27,6 +28,7 @@ function App() {
         <Route path="/Login" component={Login} />
         <Route path="/Register" component={PasswordStrengthExample} />
         <Route path="/product/:id" component={ProductPage}/>
+        <Route path="/wishlist" component={WishlistPage} />
       </Switch>
     </Router>
   );

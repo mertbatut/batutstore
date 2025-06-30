@@ -13,17 +13,89 @@ export default function ProductDetailPage() {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('description');
 
+  // products.json dosyasından tüm ürünleri getir (WishlistPage'deki gibi)
+  const fetchAllProducts = async () => {
+    try {
+      const response = await fetch('/data/products.json');
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      console.log('Products.json raw data:', data);
+      console.log('Data type:', typeof data);
+      console.log('Is array:', Array.isArray(data));
+      
+      // Eğer data bir object ise ve içinde products array'i varsa
+      if (data && typeof data === 'object' && !Array.isArray(data)) {
+        if (data.products && Array.isArray(data.products)) {
+          console.log('Found products array inside object');
+          return data.products;
+        } else if (data.data && Array.isArray(data.data)) {
+          console.log('Found data array inside object');
+          return data.data;
+        } else {
+          console.log('Object keys:', Object.keys(data));
+          // İlk array olan property'yi bul
+          for (const key in data) {
+            if (Array.isArray(data[key])) {
+              console.log(`Found array in key: ${key}`);
+              return data[key];
+            }
+          }
+        }
+      }
+      
+      // Eğer data zaten array ise
+      if (Array.isArray(data)) {
+        console.log('Data is already an array');
+        return data;
+      }
+      
+      console.error('Could not find products array in data structure');
+      return [];
+      
+    } catch (error) {
+      console.error('Error fetching products.json:', error);
+      return [];
+    }
+  };
+
   useEffect(() => {
     const loadProduct = async () => {
       try {
-        const response = await fetch('/data/products.json');
-        const data = await response.json();
-        const foundProduct = data.products.find(p => p.id === parseInt(id));
+        const allProducts = await fetchAllProducts();
+        console.log('All products:', allProducts);
+        console.log('Looking for product ID:', parseInt(id));
+        
+        if (!Array.isArray(allProducts)) {
+          console.error('allProducts is not an array:', allProducts);
+          setLoading(false);
+          return;
+        }
+
+        const foundProduct = allProducts.find(p => p.id === parseInt(id));
+        console.log('Found product:', foundProduct);
         
         if (foundProduct) {
           setProduct(foundProduct);
-          setSelectedColor(foundProduct.colors[0]);
-          setSelectedImage(foundProduct.images[foundProduct.colors[0]]);
+          
+          // Color handling - colors veya colorOptions kontrol et
+          if (foundProduct.colors && foundProduct.colors.length > 0) {
+            setSelectedColor(foundProduct.colors[0]);
+            setSelectedImage(foundProduct.images[foundProduct.colors[0]]);
+          } else if (foundProduct.colorOptions && foundProduct.colorOptions.length > 0) {
+            setSelectedColor(foundProduct.colorOptions[0].name);
+            setSelectedImage(foundProduct.images[foundProduct.colorOptions[0].name]);
+          } else {
+            // Renk seçeneği yoksa ilk image'i al
+            const firstImageKey = Object.keys(foundProduct.images || {})[0];
+            if (firstImageKey) {
+              setSelectedColor(firstImageKey);
+              setSelectedImage(foundProduct.images[firstImageKey]);
+            }
+          }
         }
         setLoading(false);
       } catch (error) {
@@ -39,7 +111,9 @@ export default function ProductDetailPage() {
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
-    setSelectedImage(product.images[color]);
+    if (product.images && product.images[color]) {
+      setSelectedImage(product.images[color]);
+    }
   };
 
   const handleQuantityChange = (change) => {
@@ -85,6 +159,9 @@ export default function ProductDetailPage() {
     );
   }
 
+  // Renk seçeneklerini dinamik al
+  const colorOptions = product.colors || (product.colorOptions ? product.colorOptions.map(c => c.name) : []);
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -119,23 +196,25 @@ export default function ProductDetailPage() {
             </div>
             
             {/* Color Selection Images */}
-            <div className="grid grid-cols-4 gap-4">
-              {product.colors.map((color) => (
-                <button
-                  key={color}
-                  onClick={() => handleColorChange(color)}
-                  className={`aspect-square bg-white rounded-lg overflow-hidden border-2 transition-all ${
-                    selectedColor === color ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200 hover:border-gray-300'
-                  }`}
-                >
-                  <img
-                    src={product.images[color]}
-                    alt={`${product.name} - ${color}`}
-                    className="w-full h-full object-cover"
-                  />
-                </button>
-              ))}
-            </div>
+            {colorOptions.length > 0 && (
+              <div className="grid grid-cols-4 gap-4">
+                {colorOptions.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => handleColorChange(color)}
+                    className={`aspect-square bg-white rounded-lg overflow-hidden border-2 transition-all ${
+                      selectedColor === color ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <img
+                      src={product.images[color]}
+                      alt={`${product.name} - ${color}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Product Info */}
@@ -193,34 +272,38 @@ export default function ProductDetailPage() {
             <p className="text-gray-600 leading-relaxed">{product.description}</p>
 
             {/* Brand */}
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-500">Marka:</span>
-              <span className="text-sm font-medium text-gray-900">{product.brand}</span>
-            </div>
+            {product.brand && (
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-gray-500">Marka:</span>
+                <span className="text-sm font-medium text-gray-900">{product.brand}</span>
+              </div>
+            )}
 
             {/* Color Selection */}
-            <div>
-              <h3 className="text-sm font-medium text-gray-900 mb-3">Renk: {selectedColor}</h3>
-              <div className="flex gap-3">
-                {product.colors.map((color) => (
-                  <button
-                    key={color}
-                    onClick={() => handleColorChange(color)}
-                    className={`w-12 h-12 rounded-lg border-2 transition-all ${
-                      selectedColor === color ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-300 hover:border-gray-400'
-                    }`}
-                    style={{
-                      backgroundColor: color.toLowerCase(),
-                      backgroundImage: `url(${product.images[color]})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center'
-                    }}
-                  >
-                    <span className="sr-only">{color}</span>
-                  </button>
-                ))}
+            {colorOptions.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 mb-3">Renk: {selectedColor}</h3>
+                <div className="flex gap-3">
+                  {colorOptions.map((color) => (
+                    <button
+                      key={color}
+                      onClick={() => handleColorChange(color)}
+                      className={`w-12 h-12 rounded-lg border-2 transition-all ${
+                        selectedColor === color ? 'border-blue-500 ring-2 ring-blue-200' : 'border-gray-300 hover:border-gray-400'
+                      }`}
+                      style={{
+                        backgroundColor: color.toLowerCase(),
+                        backgroundImage: `url(${product.images[color]})`,
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center'
+                      }}
+                    >
+                      <span className="sr-only">{color}</span>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
             {/* Quantity & Add to Cart */}
             <div className="space-y-4">
@@ -266,19 +349,21 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Tags */}
-            <div>
-              <h3 className="text-sm font-medium text-gray-900 mb-3">Etiketler</h3>
-              <div className="flex flex-wrap gap-2">
-                {product.tags.map((tag, index) => (
-                  <span
-                    key={index}
-                    className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
-                  >
-                    {tag}
-                  </span>
-                ))}
+            {product.tags && product.tags.length > 0 && (
+              <div>
+                <h3 className="text-sm font-medium text-gray-900 mb-3">Etiketler</h3>
+                <div className="flex flex-wrap gap-2">
+                  {product.tags.map((tag, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-gray-100 text-gray-700 text-sm rounded-full"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 
@@ -353,10 +438,12 @@ export default function ProductDetailPage() {
                 <div>
                   <h4 className="font-medium text-gray-900 mb-4">Genel Bilgiler</h4>
                   <dl className="space-y-3">
-                    <div className="flex justify-between">
-                      <dt className="text-sm text-gray-600">Marka:</dt>
-                      <dd className="text-sm font-medium text-gray-900">{product.brand}</dd>
-                    </div>
+                    {product.brand && (
+                      <div className="flex justify-between">
+                        <dt className="text-sm text-gray-600">Marka:</dt>
+                        <dd className="text-sm font-medium text-gray-900">{product.brand}</dd>
+                      </div>
+                    )}
                     <div className="flex justify-between">
                       <dt className="text-sm text-gray-600">Kategori:</dt>
                       <dd className="text-sm font-medium text-gray-900">{product.category}</dd>
@@ -369,7 +456,7 @@ export default function ProductDetailPage() {
                     </div>
                     <div className="flex justify-between">
                       <dt className="text-sm text-gray-600">Renk Seçenekleri:</dt>
-                      <dd className="text-sm font-medium text-gray-900">{product.colors.length}</dd>
+                      <dd className="text-sm font-medium text-gray-900">{colorOptions.length}</dd>
                     </div>
                   </dl>
                 </div>

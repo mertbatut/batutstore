@@ -1,4 +1,3 @@
-
 import React from 'react'
 import Footer from '../components/Footer'
 import Team from '../components/Team'
@@ -9,102 +8,262 @@ import ProductPage from './ProductDetailPage'
 
 export default function About() {
     let { path, url } = useRouteMatch();
+    
     return (
-        <div>
-             <nav>
-        
-      </nav>
-      <Switch>
-        <Route path={`${path}/ProductPage`} component={ProductPage} />
-      </Switch>
-           <Header/>
-            <div className='Deben1 flex justify-center'>
-                <div className='AboutText flex py-28 gap-20  w-[1050px]'>
-                    <div className='AboutTextrow flex flex-col  w-[559px] gap-9'>
-                        <h5 className='font-bold text-base text-[#252B42]'>ABOUT COMPANY</h5>
-                        <h1 className='text-6xl leading-[3rem] font-bold text-[#252B42]'>ABOUT US</h1>
-                        <h4 className='font-normal text-[#737373] text-xl'>We know how large objects will act,but things on a small scale</h4>
-                       <a href="#"> <button className='BecomeButton bg-[#23A6F0] py-4 px-10 w-[193px] h-[52px] rounded-md text-[#FFFFFF] text-sm font-bold'>Get Quote Now </button></a>
+        <div className="min-h-screen bg-white">
+            <nav></nav>
+            <Switch>
+                <Route path={`${path}/ProductPage`} component={ProductPage} />
+            </Switch>
+            
+            <Header />
+            
+            {/* Hero Section */}
+            <section className="relative overflow-hidden bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="flex flex-col lg:flex-row items-center justify-between py-16 lg:py-24 gap-12 lg:gap-20">
+                        
+                        {/* Text Content */}
+                        <div className="flex-1 max-w-xl lg:max-w-none">
+                            <div className="text-center lg:text-left space-y-6 lg:space-y-8">
+                                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200">
+                                    <span className="text-sm font-semibold text-blue-700 tracking-wide uppercase">
+                                        About Company
+                                    </span>
+                                </div>
+                                
+                                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                                    About
+                                    <span className="block text-blue-600">Our Story</span>
+                                </h1>
+                                
+                                <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl">
+                                    We know how large objects will act, but things on a small scale just do not act that way.
+                                </p>
+                                
+                                <div className="pt-4">
+                                    <button className="inline-flex items-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105">
+                                        <span>Get Quote Now</span>
+                                        <i className="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        {/* Image Content */}
+                        <div className="flex-1 max-w-lg lg:max-w-none">
+                            <div className="relative">
+                                <div className="absolute inset-0 bg-blue-600 rounded-3xl transform rotate-3 opacity-10"></div>
+                                <img 
+                                    className="relative w-full h-auto rounded-3xl shadow-2xl object-cover" 
+                                    src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                                    alt="Team collaboration" 
+                                />
+                            </div>
+                        </div>
                     </div>
-                    <div className='AboutBackground w-[571px] '>
-                        <img className='' src="https://s3-alpha-sig.figma.com/img/7466/f015/45eb1f33b39fa1e1f6b0ddf5bb703345?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=iJJu9WWsMF3FGy9ya~2uv4FU~PtI-Zs4f5deCuLqPcfJB-0kBVa0vcvJrBicnvjucccJAdNajtu~U1JS9uSPnYvmUd6lcrQtAk1jNm85AuQiT8f6wh88vCvir4Hvs-yMUgtqWPW3D2EhL87y8bQ4Mg~HGWKGB8cjEK6e8r-Zit9XrLaKlVqRYsGhrMI3sEvbKuvO6fS8mrQiEpRj1SWm8xe-tkj60sf2JudjtmcxbtMHScND7c4dhtcVNFb5kLtDAXicnERP~vFGtFU3jOZQH8V9~I4Ia9s6jhPEWYBFPwdbTno~RkkQIysh8YT0atSinJUAHUTrQ74mzMNzx2mTAg__" alt="" />
+                </div>
+            </section>
 
+            {/* Problem Statement Section */}
+            <section className="py-16 lg:py-20 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        
+                        <div className="space-y-6">
+                            <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-red-50 border border-red-200">
+                                <span className="text-sm font-semibold text-red-600 tracking-wide uppercase">
+                                    Problems Trying
+                                </span>
+                            </div>
+                            
+                            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 leading-tight">
+                                Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.
+                            </h2>
+                        </div>
+                        
+                        <div className="space-y-4">
+                            <p className="text-lg text-gray-600 leading-relaxed">
+                                Problems trying to resolve the conflict between the two major realms of Classical physics: 
+                                Newtonian mechanics and quantum mechanics. The two theories are fundamentally different 
+                                and cannot be easily reconciled.
+                            </p>
+                            <p className="text-base text-gray-500">
+                                We're working on innovative solutions to bridge these gaps and create meaningful experiences.
+                            </p>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-            </div>
-            <div className='AboutContent'>
-                <div className='AboutContentContainer py-6 flex justify-center'>
-                    <div className='AboutContentRow flex items-center gap-14 w-[1018px]'>
-                        <div className='AboutText1 w-[394px]'>
-                            <span className='AboutMain flex flex-col gap-6'>
-                                <p className='text-sm font-normal text-[#E74040]'>Problems trying</p>
-                                <h3 className='text-2xl font-bold text-[#252B42]'>Met minim Mollie non desert Alamo est sit cliquey dolor do met sent.</h3>
-                            </span>
+            {/* Stats Section */}
+            <section className="py-16 lg:py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+                        
+                        <div className="text-center group">
+                            <div className="mb-4">
+                                <h3 className="text-4xl lg:text-6xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                    15K
+                                </h3>
+                            </div>
+                            <p className="text-sm lg:text-base text-gray-600 font-medium uppercase tracking-wide">
+                                Happy Customers
+                            </p>
                         </div>
-                        <div className='AboutText2 w-529px]'>
-                            <p className='text-sm font-normal text-[#737373]'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
+                        
+                        <div className="text-center group">
+                            <div className="mb-4">
+                                <h3 className="text-4xl lg:text-6xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                    150K
+                                </h3>
+                            </div>
+                            <p className="text-sm lg:text-base text-gray-600 font-medium uppercase tracking-wide">
+                                Monthly Visitors
+                            </p>
+                        </div>
+                        
+                        <div className="text-center group">
+                            <div className="mb-4">
+                                <h3 className="text-4xl lg:text-6xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                    15
+                                </h3>
+                            </div>
+                            <p className="text-sm lg:text-base text-gray-600 font-medium uppercase tracking-wide">
+                                Countries Worldwide
+                            </p>
+                        </div>
+                        
+                        <div className="text-center group">
+                            <div className="mb-4">
+                                <h3 className="text-4xl lg:text-6xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-200">
+                                    100+
+                                </h3>
+                            </div>
+                            <p className="text-sm lg:text-base text-gray-600 font-medium uppercase tracking-wide">
+                                Top Partners
+                            </p>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='AboutStats flex justify-center py-20'>
-                <div className="StatsContainer">
-                    <div className="StatsRow flex gap-32">
-                        <div className='Stats1 flex flex-col items-center'>
-                            <p className='text-[#252B42]  font-bold text-6xl'>15K</p>
-                            <p>Happy Customers</p>
-                        </div>
-                        <div className='Stats2 flex flex-col items-center'>
-                            <p className='text-[#252B42]  font-bold text-6xl'>150K</p>
-                            <p>Monthly Visitors</p>
-                        </div>
-                        <div className='Stats3 flex flex-col items-center'>
-                            <p className='text-[#252B42]  font-bold text-6xl'>15</p>
-                            <p>Countries  Worldwide</p>
-                        </div>
-                        <div className='Stats4 flex flex-col items-center'>
-                            <p className='text-[#252B42] font-bold text-6xl'>100+</p>
-                            <p>Top Partners</p>
+            </section>
+
+            {/* Video Section */}
+            <section className="py-16 lg:py-20 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="relative max-w-5xl mx-auto">
+                        
+                        {/* Video Container */}
+                        <div className="relative group cursor-pointer">
+                            <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                                <img 
+                                    className="w-full h-[300px] sm:h-[400px] lg:h-[540px] object-cover transition-transform duration-700 group-hover:scale-105" 
+                                    src="https://images.unsplash.com/photo-1553484771-371a605b060b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                                    alt="Company video thumbnail" 
+                                />
+                                
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300 group-hover:bg-opacity-20"></div>
+                                
+                                {/* Play Button */}
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <button className="w-20 h-20 lg:w-24 lg:h-24 bg-blue-600 hover:bg-blue-700 rounded-full shadow-2xl transform transition-all duration-300 hover:scale-110 group-hover:shadow-blue-500/25">
+                                        <i className="fa-solid fa-play text-white text-xl lg:text-2xl ml-1"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            
+                            {/* Video Info */}
+                            <div className="absolute bottom-6 left-6 right-6">
+                                <div className="bg-white bg-opacity-90 backdrop-blur-sm rounded-xl p-4 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                                    <h3 className="font-semibold text-gray-900 mb-1">Watch Our Story</h3>
+                                    <p className="text-sm text-gray-600">Discover how we're building the future</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='VideoContainer flex justify-center pt-28 pb-20'>
-                <div className="VideoCard flex justify-center items-center">
-                    <button className='absolute w-[92px] h-[92px] bg-[#23A6F0] rounded-full'><i class="fa-solid fa-play fa-2x text-white"></i></button>
-                    <div className=''><img className='w-[989px] h-[540px] rounded-2xl' src="https://s3-alpha-sig.figma.com/img/bf53/61f3/08dd0c5a04f10121bc68f6cb9ff0d63d?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=c68LoUmKz2VMmeaoTCzutTIiKnQ6cGs~EbWCbCGOlXlE-PZy9oaUO4y~icSOupuPpuyxz1OJn0ssgXhgXowN~MEfLFv8uOuqPyjcRlSlyK5XJ396e9vJz06BwXzLDTSrm3GgG7AEWned~KfLhwHPWKn2mcCXrc-Uknlqm5vXgQaA-PiEFbl-8jt5QdRAIVdMfQM1X421x5mcuuUnO0ie9vkceqoV0~HGWtSZ9e-ZYTpxBJTA7xrh5kV~rfbXrfxFB7n1axNccZT24-Ye4tluiD24VzPEyav53lTEdZX4owLZdfyHQ2MTzKCAz98YAFSHVSVFvOPCyK0fI91IpgbrFw__" alt="" /></div>
-                </div>
-            </div>
+            </section>
+
+            {/* Team Section */}
             <Team />
-            <div className='py-20 bg-[#FAFAFA]'>
-                <div className='VectorRow1 flex justify-center'>
-                    <div className="VectorText1 flex flex-col items-center gap-8">
-                        <h2 className='text-4xl font-bold text-[#252B42] leading-tight'>Big Companies Are Here</h2>
-                        <p className=' text-sm font-normal text-[#737373]'>Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
-                    </div>
-                </div>
-               <Brands/>
-            </div>
-            <div className='Testominal bg-[#2A7CC7] flex justify-center flex-row-reverse items-center'>
-                <div className='TestoBack flex justify-end'>
-                   <img className='w-[590px] ' src="https://s3-alpha-sig.figma.com/img/a014/4955/2eeaef7ecedd3954687aefbdb6236bb6?Expires=1716768000&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=hSmWhqToaALascUYTcFQIZuPFvmhwN0dybk4LSpEeQrOzXV893bF5903UF-neJ92eMl5JUKSlpkgnN-DMZfrgJs8oP7jOGx1zENr6b4ga9krFSJ6YkWrf~1QSmErpfr0phDGyNlA7BuqgPhO2KdUVvgd0uOmGhrTKLZnVrSjcWGetI29Jp8XCDS4O7TSIxYA4kBb67Adqa~y7q1CV0WzVHi1TJ6P3alrRj2T99GA7jHoYAyebhjIztHQZSsHNvHAyNYB-kWaGrYtLrkZbPI82FSp-vH7h1KmW5MCWuURA4E4yBayrXG~pMXBCGIrC5dyiBqJGmYR4B9cb3WbIo27uQ__" alt="" />
-                </div>
-                <div className='TestoText'>
-                    <div className="TestoRow w-[1050px] flex justify-around">
-                        <div className='flex gap-6 flex-col w-[438px]'>
-                            <h5 className='font-bold text-sm text-[#FFFFFF]'>WORK WITH US</h5>
-                            <h2 className='text-4xl font-bold text-[#FFFFFF]'>Now Let’s grow Yours</h2>
-                            <p className='text-sm text-[#FFFFFF] font-normal'>The gradual accumulation of information about atomic and small-scale behavior during the first quarter of the 20th </p>
-                            <button className='w-[130px] h-[50px] rounded-md py-4 px-10  border-2 border-[#FAFAFA] font-bold text-sm text-[#FAFAFA]'>Button</button>
-                        </div>
-                        <div></div>
-                    </div>
-                </div>
 
-            </div>
+            {/* Brands Section */}
+            <section className="py-16 lg:py-20 bg-gray-50">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-12 lg:mb-16">
+                        <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                            Big Companies Are Here
+                        </h2>
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                            Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics
+                        </p>
+                    </div>
+                    <Brands />
+                </div>
+            </section>
+
+            {/* CTA Section */}
+            <section className="relative py-16 lg:py-20 bg-blue-600 overflow-hidden">
+                <div className="absolute inset-0">
+                    <div className="absolute inset-0 bg-blue-700 opacity-90"></div>
+                    <div className="absolute top-0 right-0 w-1/2 h-full">
+                        <img 
+                            className="w-full h-full object-cover opacity-30" 
+                            src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                            alt="Work with us background" 
+                        />
+                    </div>
+                </div>
+                
+                <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        
+                        <div className="space-y-8">
+                            <div className="space-y-6">
+                                <div className="inline-flex items-center px-3 py-1.5 rounded-full bg-white bg-opacity-20 border border-white border-opacity-30">
+                                    <span className="text-sm font-semibold text-white tracking-wide uppercase">
+                                        Work With Us
+                                    </span>
+                                </div>
+                                
+                                <h2 className="text-3xl lg:text-4xl font-bold text-white leading-tight">
+                                    Now Let's Grow Yours
+                                </h2>
+                                
+                                <p className="text-lg text-blue-100 leading-relaxed">
+                                    The gradual accumulation of information about atomic and small-scale behavior during the first quarter of the 20th century.
+                                </p>
+                            </div>
+                            
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <button className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-semibold rounded-xl hover:bg-white hover:text-blue-600 transition-all duration-200">
+                                    <span>Get Started</span>
+                                    <i className="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                                </button>
+                                
+                                <button className="inline-flex items-center justify-center px-8 py-4 bg-white text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all duration-200 shadow-lg">
+                                    <i className="fa-solid fa-phone mr-2 text-sm"></i>
+                                    <span>Contact Us</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div className="lg:flex lg:justify-end">
+                            <div className="relative max-w-md">
+                                <div className="absolute inset-0 bg-white rounded-3xl transform rotate-3 opacity-10"></div>
+                                <img 
+                                    className="relative w-full h-auto rounded-3xl shadow-2xl" 
+                                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                                    alt="Professional woman" 
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <Footer />
         </div>
-
     )
 }
